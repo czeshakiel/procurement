@@ -12,10 +12,10 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('pages/'.$page);                 
         }
         public function authenticate(){
-            $this->load->model('Sales_model');
+            $this->load->model('Procurement_model');
             $username = $this->input->post('username');
             $password = $this->input->post('password');
-            $login = $this->Sales_model->authenticate($username, $password);
+            $login = $this->Procurement_model->authenticate($username, $password);
             if($login){
                 $userdata=array(
                     'username' => $username,
@@ -34,10 +34,14 @@ date_default_timezone_set('Asia/Manila');
                 show_404();
             }
             if(!$this->session->user_login){redirect(base_url());}
-            $data['title'] = "Products Masterfile";
-            $this->load->view('includes/header');
-            $this->load->view('includes/navbar');
+            $data['title'] = "Projects";
+            $data['all_projects'] = $this->Procurement_model->getAllProjects();
+            $data['started_projects'] = $this->Procurement_model->getStartedProjects();
+            $data['continuing_projects'] = $this->Procurement_model->getContinuingProjects();
+            $data['completed_projects'] = $this->Procurement_model->getCompletedProjects();
+            $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
             $this->load->view('pages/'.$page,$data);
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
@@ -50,66 +54,149 @@ date_default_timezone_set('Asia/Manila');
             redirect(base_url());
         }
 
-        public function products(){
-            $page = "products";
+        public function manage_users(){
+            $page = "manage_users";
             if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
                 show_404();
             }
             if(!$this->session->user_login){redirect(base_url());}
-            $data['title'] = "Products Masterfile";
-            $data['items'] = $this->Sales_model->getAllProducts();
-            $this->load->view('includes/header');
-            $this->load->view('includes/navbar');
+            $data['title'] = "User Management";
+            $data['users'] = $this->Procurement_model->getAllUsers();
+            $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
             $this->load->view('pages/'.$page,$data);
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
         }
 
-        public function manage_products($id){
-            $page = "manage_products";
-            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
-                show_404();
-            }
-            if(!$this->session->user_login){redirect(base_url());}
-            $data['title'] = "Products Masterfile";
-            $data['id'] = $id;
-            $data['item'] = $this->Sales_model->getSingleProducts($id);
-            $this->load->view('includes/header');
-            $this->load->view('includes/navbar');
-            $this->load->view('includes/sidebar');
-            $this->load->view('pages/'.$page,$data);
-            $this->load->view('includes/modal');
-            $this->load->view('includes/footer');
-        }
-
-        public function save_products(){
-            $id = $this->input->post('id');
-            $sku = $this->input->post('sku');
-            $description = $this->input->post('description');
-            $unitcost = $this->input->post('unitcost');
-            $srp = $this->input->post('srp');
-            $category = $this->input->post('category');
-            $reorder = $this->input->post('reorder');
-            $location = $this->input->post('location');
-            if($id==0){
-                //update
-                $save = $this->Sales_model->updateProducts($id, $sku, $description, $unitcost, $srp, $category, $reorder, $location);
-                if($save){
-                    $this->session->set_flashdata('success', 'Product successfully updated!');
-                } else {
-                    $this->session->set_flashdata('failed', 'Failed to update product!');
-                }
+        public function save_users(){
+            $save=$this->Procurement_model->save_users();
+            if($save){
+                $this->session->set_flashdata('success', 'User saved successfully.');
             } else {
-                //insert
-                $save = $this->Sales_model->insertProducts($sku, $description, $unitcost, $srp, $category, $reorder, $location);
-                if($save){
-                    $this->session->set_flashdata('success', 'Product successfully added!');
-                } else {
-                    $this->session->set_flashdata('failed', 'Failed to add product!');
-                }
+                $this->session->set_flashdata('error', 'Username already exists. Please choose a different username.');
             }
-            redirect(base_url('products'));
-    }
+            redirect(base_url('manage_users'));
+        }
+
+        public function delete_users($id){
+            $save=$this->Procurement_model->delete_users($id);
+            if($save){
+                $this->session->set_flashdata('success', 'User deleted successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to delete user.');
+            }
+            redirect(base_url('manage_users'));                        
+        }
+        public function manage_units(){
+            $page = "manage_units";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Unit Management";
+            $data['units'] = $this->Procurement_model->getAllUnits();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function save_units(){
+            $save=$this->Procurement_model->save_units();
+            if($save){
+                $this->session->set_flashdata('success', 'Unit saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Unit already exists. Please choose a different unit name.');
+            }
+            redirect(base_url('manage_units'));
+        }
+
+        public function delete_units($id){
+            $save=$this->Procurement_model->delete_units($id);
+            if($save){
+                $this->session->set_flashdata('success', 'Unit deleted successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to delete unit.');
+            }
+            redirect(base_url('manage_units'));                        
+        }
+
+        public function manage_suppliers(){
+            $page = "manage_suppliers";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Supplier Management";
+            $data['suppliers'] = $this->Procurement_model->getAllSuppliers();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function save_suppliers(){
+            $save=$this->Procurement_model->save_suppliers();
+            if($save){
+                $this->session->set_flashdata('success', 'Supplier saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Supplier already exists. Please choose a different supplier name.');
+            }
+            redirect(base_url('manage_suppliers'));
+        }
+
+        public function delete_suppliers($id){
+            $save=$this->Procurement_model->delete_suppliers($id);
+            if($save){
+                $this->session->set_flashdata('success', 'Supplier deleted successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to delete supplier.');
+            }
+            redirect(base_url('manage_suppliers'));                        
+        }
+
+        public function manage_stocks(){
+            $page = "manage_stocks";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Stock Management";
+            $data['stocks'] = $this->Procurement_model->getAllStocks();
+            $data['units'] = $this->Procurement_model->getAllUnits();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function save_stocks(){
+            $save=$this->Procurement_model->save_stocks();
+            if($save){
+                $this->session->set_flashdata('success', 'Stock saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Stock already exists. Please choose a different stock name.');
+            }
+            redirect(base_url('manage_stocks'));
+        }
+
+        // public function delete_stocks($id){
+        //     $save=$this->Procurement_model->delete_stocks($id);
+        //     if($save){
+        //         $this->session->set_flashdata('success', 'Stock deleted successfully.');
+        //     } else {
+        //         $this->session->set_flashdata('error', 'Failed to delete stock.');
+        //     }
+        //     redirect(base_url('manage_stocks'));                        
+        // }
+        
 }
 ?>

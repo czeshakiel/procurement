@@ -1,354 +1,1939 @@
-<section class="content">
-    <div class="">
-        <div class="block-header">
-            <div class="row">
-                <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Dashboard</h2>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active"><a href="main"><i class="zmdi zmdi-home"></i> Dashboard</a></li>
-                    </ul>
-                    <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
-                </div>
-                <div class="col-lg-5 col-md-6 col-sm-12">                
-                    <button class="btn btn-primary btn-icon float-right right_icon_toggle_btn" type="button"><i class="zmdi zmdi-arrow-right"></i></button>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon traffic">
-                        <div class="body">
-                            <h6>Traffic</h6>
-                            <h2>20 <small class="info">of 1Tb</small></h2>
-                            <small>2% higher than last month</small>
-                            <div class="progress">
-                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon sales">
-                        <div class="body">
-                            <h6>Sales</h6>
-                            <h2>12% <small class="info">of 100</small></h2>
-                            <small>6% higher than last month</small>
-                            <div class="progress">
-                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100" style="width: 38%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon email">
-                        <div class="body">
-                            <h6>Email</h6>
-                            <h2>39 <small class="info">of 100</small></h2>
-                            <small>Total Registered email</small>
-                            <div class="progress">
-                                <div class="progress-bar l-purple" role="progressbar" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100" style="width: 39%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="card widget_2 big_icon domains">
-                        <div class="body">
-                            <h6>Domains</h6>
-                            <h2>8 <small class="info">of 10</small></h2>
-                            <small>Total Registered Domain</small>
-                            <div class="progress">
-                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100" style="width: 89%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong><i class="zmdi zmdi-chart"></i> Sales</strong> Report</h2>
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Edit</a></li>
-                                        <li><a href="javascript:void(0);">Delete</a></li>
-                                        <li><a href="javascript:void(0);">Report</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body mb-2">
-                            <div class="row clearfix">
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div class="state_w1 mb-1 mt-1">
-                                        <div class="d-flex justify-content-between">
-                                            <div>
-                                                <h5>2,365</h5>
-                                                <span><i class="zmdi zmdi-balance"></i> Revenue</span>
-                                            </div>
-                                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#868e96">5,2,3,7,6,4,8,1</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div class="state_w1 mb-1 mt-1">
-                                        <div class="d-flex justify-content-between">
-                                            <div>                                
-                                                <h5>365</h5>
-                                                <span><i class="zmdi zmdi-turning-sign"></i> Returns</span>
-                                            </div>
-                                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#2bcbba">8,2,6,5,1,4,4,3</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div class="state_w1 mb-1 mt-1">
-                                        <div class="d-flex justify-content-between">
-                                            <div>
-                                                <h5>65</h5>
-                                                <span><i class="zmdi zmdi-alert-circle-o"></i> Queries</span>
-                                            </div>
-                                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#82c885">4,4,3,9,2,1,5,7</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-6 col-sm-6">
-                                    <div class="state_w1 mb-1 mt-1">
-                                        <div class="d-flex justify-content-between">
-                                            <div>                            
-                                                <h5>2,055</h5>
-                                                <span><i class="zmdi zmdi-print"></i> Invoices</span>
-                                            </div>
-                                            <div class="sparkline" data-type="bar" data-width="97%" data-height="55px" data-bar-Width="3" data-bar-Spacing="5" data-bar-Color="#45aaf2">7,5,3,8,4,6,2,9</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="body">
-                            <div id="chart-area-spline-sracked" class="c3_chart d_sales"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card mcard_4">
-                        <div class="body">
-                            <ul class="header-dropdown list-unstyled">
-                                <li class="dropdown">
-                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-menu"></i> </a>
-                                    <ul class="dropdown-menu slideUp">
-                                        <li><a href="javascript:void(0);">Edit</a></li>
-                                        <li><a href="javascript:void(0);">Delete</a></li>
-                                        <li><a href="javascript:void(0);">Report</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <div class="img">
-                                <img src="assets/images/lg/avatar1.jpg" class="rounded-circle" alt="profile-image">
-                            </div>
-                            <div class="user">
-                                <h5 class="mt-3 mb-1">Eliana Smith</h5>
-                                <small class="text-muted">UI/UX Desiger</small>
-                            </div>
-                            <ul class="list-unstyled social-links">
-                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-dribbble"></i></a></li>
-                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-behance"></i></a></li>
-                                <li><a href="javascript:void(0);"><i class="zmdi zmdi-pinterest"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>                
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="card w_data_1">
-                       <div class="body">
-                            <div class="w_icon pink"><i class="zmdi zmdi-bug"></i></div>
-                            <h4 class="mt-3 mb-0">12.1k</h4>
-                            <span class="text-muted">Bugs Fixed</span>
-                            <div class="w_description text-success">
-                                <i class="zmdi zmdi-trending-up"></i>
-                                <span>15.5%</span>
-                            </div>
-                       </div>
-                    </div>
-                    <div class="card w_data_1">
-                        <div class="body">
-                            <div class="w_icon cyan"><i class="zmdi zmdi-ticket-star"></i></div>
-                            <h4 class="mt-3 mb-1">01.8k</h4>
-                            <span class="text-muted">Submitted Tickers</span>
-                            <div class="w_description text-success">
-                                <i class="zmdi zmdi-trending-up"></i>
-                                <span>95.5%</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <div class="card">
-                        <div class="body">
-                            <div class="chat-widget">
-                                <ul class="list-unstyled">
-                                    <li class="left">
-                                        <img src="assets/images/xs/avatar3.jpg" class="rounded-circle" alt="">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>Frank 11:00AM</small></li>
-                                            <li><span class="message bg-blue">Hello, Michael</span></li>
-                                            <li><span class="message bg-blue">How are you!</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="right">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>11:10AM</small></li>
-                                            <li><span class="message">Hello, Frank</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="right">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>11:11AM</small></li>
-                                            <li><span class="message">I'm fine what about you?</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="left">
-                                        <img src="assets/images/xs/avatar2.jpg" class="rounded-circle" alt="">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>Gary 11:13AM</small></li>
-                                            <li><span class="message bg-indigo">Hello, Michael and Frank</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="left">
-                                        <img src="assets/images/xs/avatar5.jpg" class="rounded-circle" alt="">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>Hossein 11:14AM</small></li>
-                                            <li><span class="message bg-amber">Hello, team</span></li>
-                                            <li><span class="message bg-amber">Please let me know your requirements.</span></li>
-                                            <li><span class="message bg-amber">How would like to connect with us?</span></li>
-                                        </ul>
-                                    </li>
-                                    <li class="right">
-                                        <ul class="list-unstyled chat_info">
-                                            <li><small>11:15AM</small></li>
-                                            <li><span class="message">Hello, Hossein</span></li>
-                                            <li><span class="message">Meeting on conference room at 12:00PM</span></li>
-                                        </ul>
-                                    </li>
+ <!-- Body: Body -->
+        <div class="body d-flex py-lg-3 py-md-2">
+            <div class="container-xxl">
+                <div class="row align-items-center">
+                    <div class="border-0 mb-4">
+                        <div class="card-header p-0 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+                            <h3 class="fw-bold py-3 mb-0"><?=$title;?></h3>
+                            <div class="d-flex py-2 project-tab flex-wrap w-sm-100">
+                                <button type="button" class="btn btn-dark w-sm-100" data-bs-toggle="modal" data-bs-target="#createproject"><i class="icofont-plus-circle me-2 fs-6"></i>Create Project</button>
+                                <ul class="nav nav-tabs tab-body-header rounded ms-3 prtab-set w-sm-100" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#All-list" role="tab">All</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#Started-list" role="tab">Started</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#Approval-list" role="tab">Continuing</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#Completed-list" role="tab">Completed</a></li>
                                 </ul>
                             </div>
-                            <div class="input-group mt-3">
-                                <div class="input-group-prepend">                                    
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add</button>
-                                    <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="javascript:void(0);">Tim Hank</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">Hossein Shams</a>
-                                        <a class="dropdown-item" href="javascript:void(0);">John Smith</a>
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Enter text here..." aria-label="Text input with dropdown button">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="zmdi zmdi-mail-send"></i></span>
+                        </div>
+                    </div>
+                </div> <!-- Row end  -->
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-md-12 flex-column">
+                        <div class="tab-content mt-4">
+                            <div class="tab-pane fade show active" id="All-list">
+                                <div class="row g-3 gy-5 py-3 row-deck">
+                                    <?php                                    
+                                    foreach($all_projects as $item){
+                                       $date1=date_create($item['date_started']);
+                                        $date2=date_create(date('Y-m-d'));
+                                        $diff=date_diff($date1,$date2);
+                                        $days = $diff->format("%a");
+                                    ?>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-dropbox"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"><?=$item['projectname'];?></span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2"><?=$item['projectname'];?></h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-money"></i>
+                                                            <span class="ms-2"><?=number_format($item['amount_approved'], 2);?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2"><?=$days;?> Days Past</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2"><?=$item['contractor'];?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-calendar"></i>
+                                                            <span class="ms-2"><?=date('m/d/Y', strtotime($item['date_started']));?></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">                                                   
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 42%" aria-valuenow="5000000" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                          
+                                    <?php
+                                    }
+                                    ?>          
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-md-12 col-lg-8">
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>Visitors</strong> Statistics</h2>
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>                        
-                        </div>
-                        <div class="body">
-                            <div id="world-map-markers" class="jvector-map"></div>                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>Distribution</strong></h2>
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Edit</a></li>
-                                        <li><a href="javascript:void(0);">Delete</a></li>
-                                        <li><a href="javascript:void(0);">Report</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body text-center">
-                            <div id="chart-pie" class="c3_chart d_distribution"></div>
-                            <button class="btn btn-primary mt-4 mb-4">View More</button>                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="header">
-                            <h2><strong>Traffic</strong> Source</h2>
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Edit</a></li>
-                                        <li><a href="javascript:void(0);">Delete</a></li>
-                                        <li><a href="javascript:void(0);">Report</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="body">
-                            <div class="row">
-                                <div class="col-lg-8 col-md-6 col-sm-12">
-                                    <div id="chart-area-step" class="c3_chart d_traffic"></div>
+                            <div class="tab-pane fade" id="Started-list">
+                                <div class="row g-3 gy-5 py-3 row-deck">
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-paint"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Social Geek Made </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">UI/UX Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">5 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">4 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">5 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">10</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Practice to Perfect </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 15 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 39%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightyellow">
+                                                            <i class="icofont-ui-touch-phone"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Rhinestone </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">App Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">7 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">2 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">6 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 25 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-success-bg">
+                                                            <i class="icofont-tick-boxed"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Box of Crayons </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Quality Assurance</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">1 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">2 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">15</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 2 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 40%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-orange-bg">
+                                                            <i class="icofont-dashboard-web"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Gob Geeklords </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar9.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">10 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">10 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">45</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 20 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-careys-pink">
+                                                            <i class="icofont-site-map"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Java Dalia </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Backend Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">8 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">8Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">7</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 10 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 23%" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightblue">
+                                                            <i class="icofont-tasks"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Fast Cad</span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Software Testing</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">7 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">2 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">6 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 25 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 28%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Practice to Perfect </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 15 Days Left</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 39%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12">
-                                    <span> More than 30% percent of users come from direct links. Check details page for more information.</span>
-                                    <div class="progress mt-4">
-                                        <div class="progress-bar l-amber" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%;"></div>
-                                    </div>
-                                    <div class="d-flex bd-highlight mt-4">                                
-                                        <div class="flex-fill bd-highlight">
-                                            <h5 class="mb-0">21,521 <i class="zmdi zmdi-long-arrow-up"></i></h5>
-                                            <small>Today</small>
+                            </div>
+                            <div class="tab-pane fade" id="Approval-list">
+                                <div class="row g-3 gy-5 py-3 row-deck">
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-paint"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Software Chasers </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">UI/UX Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">5 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">4 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">5 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">10</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="flex-fill bd-highlight">
-                                            <h5 class="mb-0">%12.35 <i class="zmdi zmdi-long-arrow-down"></i></h5>
-                                            <small>Last month %</small>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Navy Hurdle </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>                                
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-orange-bg">
+                                                            <i class="icofont-dashboard-web"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Barcelona </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar9.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">10 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">10 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">10 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">45</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-careys-pink">
+                                                            <i class="icofont-site-map"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> phoenix </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Backend Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">8 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">8Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">7</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightblue">
+                                                            <i class="icofont-tasks"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Roadrunner</span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Software Testing</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">7 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">2 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">6 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-success-bg">
+                                                            <i class="icofont-tick-boxed"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Bladerunner</span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Quality Assurance</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">1 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">2 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Navy Hurdle </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">1 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-orange-bg">
+                                                            <i class="icofont-dashboard-web"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Barcelona </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#editproject"><i class="icofont-edit text-success"></i></button>
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar9.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        <span class="avatar rounded-circle text-center pointer sm" data-bs-toggle="modal" data-bs-target="#addUser"><i class="icofont-ui-add"></i></span>
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">10 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2">10 Month</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">10 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">45</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-warning-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Approval</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 0%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="Completed-list">
+                                <div class="row g-3 gy-5 py-3 row-deck">
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-paint"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Sunburst </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">UI/UX Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">5 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">5 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">10</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> X mind </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightyellow">
+                                                            <i class="icofont-ui-touch-phone"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Edison </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">App Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">7 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">6 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-success-bg">
+                                                            <i class="icofont-tick-boxed"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Fireball </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Quality Assurance</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">1 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">2 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">15</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-orange-bg">
+                                                            <i class="icofont-dashboard-web"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Firestorm </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar9.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">10 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">45</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-careys-pink">
+                                                            <i class="icofont-site-map"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Irongate </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Backend Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar10.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">8 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">7</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightblue">
+                                                            <i class="icofont-tasks"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Kryptonite</span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Software Testing</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar7.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">7 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">6 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">5</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Moonshine </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-success-bg">
+                                                            <i class="icofont-tick-boxed"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Oyster </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Quality Assurance</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">1 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">2 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">0</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block bg-lightgreen">
+                                                            <i class="icofont-vector-path"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> X mind </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Website Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">4 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">4 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-orange-bg">
+                                                            <i class="icofont-dashboard-web"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Firestorm </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">Development</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar9.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar11.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar6.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">10 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">8 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">45</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-paint"></i>
+                                                        </div>
+                                                        <span class="small text-muted project_name fw-bold"> Sunburst </span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2">UI/UX Design</h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                       
+                                                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#deleteproject"><i class="icofont-ui-delete text-danger"></i></button>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="avatar-list avatar-list-stacked pt-2">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar2.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar1.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar3.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar4.jpg" alt="">
+                                                        <img class="avatar rounded-circle sm" src="assets/images/xs/avatar8.jpg" alt="">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-paper-clip"></i>
+                                                            <span class="ms-2">5 Attach</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2 text-success">Completed</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2">5 Members</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-ui-text-chat"></i>
+                                                            <span class="ms-2">10</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Progress</h4>
+                                                    <span class="small light-success-bg  p-1 rounded"><i class="icofont-ui-clock"></i> Completed</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">
+                                                    <div class="progress-bar bg-secondary" role="progressbar" style="width: 25%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 25%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 50%" aria-valuenow="39" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>

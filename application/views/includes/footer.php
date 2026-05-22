@@ -1,26 +1,83 @@
 
-<!-- Jquery Core Js --> 
-<script src="<?=base_url('design/assets/bundles/libscripts.bundle.js');?>"></script> <!-- Lib Scripts Plugin Js --> 
-<script src="<?=base_url('design/assets/bundles/vendorscripts.bundle.js');?>"></script> <!-- Lib Scripts Plugin Js --> 
+<!-- Jquery Core Js -->
+<script src="<?=base_url('design/assets/bundles/libscripts.bundle.js');?>"></script>
 
-<!-- Jquery DataTable Plugin Js --> 
-<script src="<?=base_url('design/assets/bundles/datatablescripts.bundle.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/buttons.bootstrap4.min.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/buttons.colVis.min.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/buttons.flash.min.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/buttons.html5.min.js');?>"></script>
-<script src="<?=base_url('design/assets/plugins/jquery-datatable/buttons/buttons.print.min.js');?>"></script>
+<!-- Plugin Js-->
+<script src="<?=base_url('design/assets/bundles/dataTables.bundle.js');?>"></script>
 
-<script src="<?=base_url('design/assets/bundles/mainscripts.bundle.js');?>"></script><!-- Custom Js --> 
-<script src="<?=base_url('design/assets/js/pages/tables/jquery-datatable.js');?>"></script>
+<!-- Jquery Page Js -->
+<script src="<?=base_url('design/assets/js/template.js');?>"></script>
 
-<script src="<?=base_url('design/assets/bundles/jvectormap.bundle.js');?>"></script> <!-- JVectorMap Plugin Js -->
-<script src="<?=base_url('design/assets/bundles/sparkline.bundle.js');?>"></script> <!-- Sparkline Plugin Js -->
-<script src="<?=base_url('design/assets/bundles/c3.bundle.js');?>"></script>
+<script>
+    // project data table
+    $(document).ready(function() {
+        $('#myProjectTable')
+        .addClass( 'nowrap' )
+        .dataTable( {
+            responsive: true,
+            columnDefs: [
+                { targets: [-1, -3], className: 'dt-body-right' }
+            ]
+        });        
+    });
 
-<script src="<?=base_url('design/assets/js/pages/index.js');?>"></script>
+    $('.addUser').on('click', function(){
+        document.getElementById('user_name').value = "";
+        document.getElementById('user_id').value = "";
+        document.getElementById('user_pass').value = "";
+        document.getElementById('userid').value = "";
+    });
+    $('.editUser').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('user_name').value = id[0];
+        document.getElementById('user_id').value = id[1];
+        document.getElementById('user_pass').value = id[2];
+        document.getElementById('userid').value = id[3];
+    });
+    $('.addUnit').on('click', function(){
+        document.getElementById('unit_description').value = "";   
+        document.getElementById('unit_id').value = "";
+    });
+    $('.editUnit').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('unit_description').value = id[0];
+        document.getElementById('unit_id').value = id[1];
+    });
+
+    $('.addSupplier').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('supplier_name').value = "";   
+        document.getElementById('supplier_code').value = id;
+        document.getElementById('supplier_status').value = "";
+        document.getElementById('supplier_id').value = "";
+    });
+    $('.editSupplier').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('supplier_name').value = id[0];
+        document.getElementById('supplier_code').value = id[1];
+        document.getElementById('supplier_status').value = id[2];
+        document.getElementById('supplier_id').value = id[3];
+    });
+
+    $('.addStock').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('stock_description').value = "";   
+        document.getElementById('stock_code').value = id;
+        document.getElementById('stock_unit').value = "";        
+        document.getElementById('stock_id').value = "";        
+    });
+    $('.editStock').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('stock_description').value = id[0];
+        document.getElementById('stock_code').value = id[1];
+        document.getElementById('stock_unit').value = id[2];
+        document.getElementById('stock_id').value = id[3];
+    });
+</script>
+
 </body>
-
-
 </html>
