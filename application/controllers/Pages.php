@@ -197,6 +197,14 @@ date_default_timezone_set('Asia/Manila');
         //     }
         //     redirect(base_url('manage_stocks'));                        
         // }
-        
+        public function save_projects(){
+            $save=$this->Procurement_model->save_projects();
+            if($save){
+                $this->session->set_flashdata('success', 'Project saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Project already exists. Please choose a different project name.');
+            }
+            redirect(base_url('main'));
+        }
 }
 ?>

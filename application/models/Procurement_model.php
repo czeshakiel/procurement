@@ -219,5 +219,47 @@
             $query = $this->db->get('project');
             return $query->result_array();
         }
+        public function save_projects(){
+            $id = $this->input->post('id');
+            $projectname = $this->input->post('projectname');
+            $contractor = $this->input->post('contractor');
+            $date_started = $this->input->post('date_started');
+            $date_ended = $this->input->post('date_ended');
+            $amount_approved = $this->input->post('amount_approved');
+            $date=date('Y-m-d');
+            if($id==""){
+                $data = array(
+                    'projectname' => $projectname,
+                    'contractor' => $contractor,
+                    'date_started' => $date_started,
+                    'date_ended' => $date_ended,
+                    'amount_approved' => $amount_approved,
+                    'datearray' => $date,
+                    'status' => 'pending'
+                );
+                $this->db->where('projectname',$projectname);
+                $check=$this->db->get('project');
+                if($check->num_rows() > 0){
+                    return false;
+                }else{
+                    if($this->db->insert('project', $data)){
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }                
+            } else {                
+                $data = array(
+                    'projectname' => $projectname,
+                    'contractor' => $contractor,
+                    'date_started' => $date_started,
+                    'date_ended' => $date_ended,
+                    'amount_approved' => $amount_approved
+                );
+                $this->db->where('id', $id);
+                $this->db->update('project', $data);
+                return true;
+            }
+        }
     }
 ?>

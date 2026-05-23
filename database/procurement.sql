@@ -82,10 +82,11 @@ CREATE TABLE `project` (
   `contractor` varchar(100) DEFAULT NULL,
   `amount_approved` double DEFAULT NULL,
   `date_started` date DEFAULT NULL,
+  `date_ended` date DEFAULT NULL,
   `datearray` date DEFAULT NULL,
   `status` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,'RDU Extension','Inhouse',12000000,'2026-02-01','2026-05-21',NULL);
+INSERT INTO `project` VALUES (1,'RDU Extension','Inhouse',12000000,'2026-02-01','2026-07-30','2026-05-21','pending'),(2,'Kitchen Renovation','Inhouse',5000000,'2026-03-01','2026-08-31','2026-05-23','pending'),(3,'NS 2 Expansion','Inhouse',2000000,'2026-03-02','2026-08-20','2026-05-23','pending');
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,9 +118,12 @@ CREATE TABLE `purchaseorder` (
   `unitcost` double DEFAULT NULL,
   `project_id` varchar(45) DEFAULT NULL,
   `status` varchar(45) DEFAULT NULL,
-  `datearray` date DEFAULT NULL,
-  `timearray` time DEFAULT NULL,
-  `username` varchar(100) DEFAULT NULL,
+  `date_requested` date DEFAULT NULL,
+  `time_requested` time DEFAULT NULL,
+  `requested_by` varchar(100) DEFAULT NULL,
+  `date_received` date DEFAULT NULL,
+  `time_received` time DEFAULT NULL,
+  `received_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -253,4 +257,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-22 15:06:51
+-- Dump completed on 2026-05-23 16:32:47

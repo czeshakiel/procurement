@@ -77,6 +77,24 @@
         document.getElementById('stock_unit').value = id[2];
         document.getElementById('stock_id').value = id[3];
     });
+    $('.createproject').on('click', function(){
+        document.getElementById('project_id').value = "";   
+        document.getElementById('project_name').value = "";
+        document.getElementById('project_contractor').value = "";        
+        document.getElementById('project_start_date').value = "";
+        document.getElementById('project_end_date').value = "";
+        document.getElementById('project_approved_amount').value = "";        
+    });
+    $('.editproject').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('project_id').value = id[0];
+        document.getElementById('project_name').value = id[1];
+        document.getElementById('project_contractor').value = id[2];
+        document.getElementById('project_start_date').value = id[3];
+        document.getElementById('project_end_date').value = id[4];
+        document.getElementById('project_approved_amount').value = id[5];
+    });
 </script>
 
 </body>
