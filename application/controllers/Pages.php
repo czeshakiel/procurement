@@ -206,5 +206,22 @@ date_default_timezone_set('Asia/Manila');
             }
             redirect(base_url('main'));
         }
+
+        public function view_project($id){
+            $page = "view_project";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Manage Project";
+            $data['project'] = $this->Procurement_model->getSingleProject($id);    
+            $data['id'] = $id;      
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
 }
 ?>

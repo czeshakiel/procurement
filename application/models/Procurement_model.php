@@ -261,5 +261,10 @@
                 return true;
             }
         }
+        public function getSingleProject($id){
+            $this->db->where('id', $id);
+            $query = $this->db->get('project');
+            return $query->row_array();            
+        }
     }
 ?>
