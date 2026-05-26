@@ -95,6 +95,10 @@
         document.getElementById('project_end_date').value = id[4];
         document.getElementById('project_approved_amount').value = id[5];
     });
+    $('.createRequest').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('request_project_id').value = id;        
+    });
 </script>
 
 </body>

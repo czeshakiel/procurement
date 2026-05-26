@@ -266,5 +266,31 @@
             $query = $this->db->get('project');
             return $query->row_array();            
         }
+        public function getAllRequests($id){
+            $this->db->where('project_id', $id);
+            $this->db->where('status', 'pending');
+            $this->db->order_by('date_requested', 'DESC');
+            $query = $this->db->get('podetails');
+            return $query->result_array();            
+        }
+        public function save_request(){
+            $project_id = $this->input->post('project_id');
+            $pono = 'PR-'.date('YmdHis');
+            $date_requested = $this->input->post('date_requested');
+            $trantype = $this->input->post('trantype');
+            $data = array(
+                'project_id' => $project_id,
+                'pono' => $pono,
+                'date_requested' => $date_requested,
+                'trantype' => $trantype,
+                'requested_by' => $this->session->fullname
+            );
+            if($this->db->insert('podetails', $data)){
+                redirect('manage_request/'.$pono.'/'.$project_id);
+            } else {
+                $this->session->set_flashdata('error', 'Unable to create request. Please try again.');
+                redirect('purchase_request/'.$project_id);
+            }
+        }
     }
 ?>

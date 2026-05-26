@@ -338,3 +338,35 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="createRequest" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Create Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('create_request');?>" method="post">
+                    <input type="hidden" name="project_id" id="request_project_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Requested</label>
+                        <input type="date" class="form-control" name="date_requested" required>
+                    </div>                                    
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Transaction Type</label>
+                        <select name="trantype" class="form-select" aria-label="Default select example" required>
+                            <option value="">Select Transaction Type</option>
+                            <option value="charge">Charge</option>
+                            <option value="cash">Cash</option>
+                        </select>
+                    </div>                                    
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

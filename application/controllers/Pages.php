@@ -223,5 +223,42 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
         }
+        public function purchase_request($id){
+            $page = "purchase_request";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Purchase Request";
+            $data['id'] = $id;  
+            $data['requests'] = $this->Procurement_model->getAllRequests($id);  
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+        public function create_request(){            
+            $save=$this->Procurement_model->save_request();                
+        }
+        public function manage_request($id,$project_id){
+            $page = "manage_request";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($project_id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
+            $data['pono'] = $id;  
+            $data['requests'] = $this->Procurement_model->getAllRequests($id);  
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
 }
 ?>
