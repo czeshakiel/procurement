@@ -292,5 +292,26 @@
                 redirect('purchase_request/'.$project_id);
             }
         }
+        public function getItemsByDescription($description){
+            $this->db->like('description', $description);
+            $query = $this->db->get('stocks');
+            return $query->result_array();
+        }
+        public function getAllRequestsDetails($id){
+            $this->db->where('pono', $id);
+            $query = $this->db->get('purchaseorder');
+            return $query->result_array();            
+        }
+        public function getQty($code){
+            $this->db->where('code', $code);
+            $query = $this->db->get('stocktable');
+            return $query->result_array();
+        }
+        public function getSuppliersByItemCode($code){
+            $this->db->where('code', $code);
+            $this->db->group_by('suppliercode');
+            $query = $this->db->get('stocktable');
+            return $query->result_array();
+        }
     }
 ?>

@@ -252,7 +252,33 @@ date_default_timezone_set('Asia/Manila');
             $project = $this->Procurement_model->getSingleProject($project_id);
             $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
             $data['pono'] = $id;  
-            $data['requests'] = $this->Procurement_model->getAllRequests($id);  
+            $data['project_id'] = $project_id;
+            $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);
+            $data['items'] = array();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function search_item(){
+            $id=$this->input->post('pono');
+            $project_id=$this->input->post('project_id');
+            $description=$this->input->post('description');
+            $page = "manage_request";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($project_id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
+            $data['pono'] = $id;  
+            $data['project_id'] = $project_id;
+            $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);  
+            $data['items'] = $this->Procurement_model->getItemsByDescription($description);
+            $data['suppliers'] = $this->Procurement_model->getAllSuppliers();
             $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
             $this->load->view('includes/navbar');
