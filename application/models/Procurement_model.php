@@ -410,5 +410,22 @@
                 return false;
             }
         }
+        public function cancel_request($pono){
+            $this->db->where('pono', $pono);
+            $query = $this->db->update('podetails', array('status' => 'cancelled'));
+            if($query){
+                $this->db->where('pono', $pono);
+                $this->db->update('purchaseorder', array('status' => 'cancelled'));
+                return true;
+            }else{
+                return false;
+            }
+        }
+        public function getAllReceivingDetails($id){
+            $this->db->where('pono', $id);
+            $this->db->where('status', 'finalized');
+            $query = $this->db->get('purchaseorder');
+            return $query->result_array();            
+        }
     }
 ?>

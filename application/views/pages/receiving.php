@@ -53,8 +53,7 @@
                                             <td><?=$request['trantype'];?></td>
                                             <td><?=$request['status'];?></td>
                                             <td>
-                                                <a href="<?=base_url('manage_request/'.$request['pono'].'/'.$request['project_id']);?>" class="btn btn-sm btn-primary">Manage</a>
-                                                <a href="<?=base_url('cancel_request/'.$request['pono'].'/'.$request['project_id']);?>" class="btn btn-sm btn-danger text-white" onclick="return confirm('Are you sure you want to cancel this request?');">Cancel</a>
+                                                <a href="<?=base_url('manage_receiving/'.$request['pono'].'/'.$request['project_id']);?>" class="btn btn-sm btn-primary" target="_blank">Manage</a>
                                             </td>  
                                         </tr>
                                         <?php } ?>

@@ -338,5 +338,51 @@ date_default_timezone_set('Asia/Manila');
             }
             redirect(base_url('manage_request/'.$pono.'/'.$project_id));
         }
+
+        public function cancel_request($pono, $project_id){
+            $delete = $this->Procurement_model->cancel_request($pono);
+            if($delete){
+                $this->session->set_flashdata('success', 'Request cancelled successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to cancel request.');
+            }
+            redirect(base_url('purchase_request/'.$project_id));
+        }
+        public function receiving($id){
+            $page = "receiving";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Receiving";
+            $data['id'] = $id;  
+            $data['requests'] = $this->Procurement_model->getAllRequests($id);  
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+        public function manage_receiving($id,$project_id){
+            $page = "manage_receiving";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($project_id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('receiving/'.$project_id)."'>Receiving</a></small> >> Manage Receiving";
+            $data['pono'] = $id;  
+            $data['project_id'] = $project_id;
+            $data['requests'] = $this->Procurement_model->getAllReceivingDetails($id);
+            $data['items'] = array();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
 }
 ?>
