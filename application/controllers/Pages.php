@@ -214,7 +214,8 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}
             $data['title'] = "Manage Project";
-            $data['project'] = $this->Procurement_model->getSingleProject($id);    
+            $data['project'] = $this->Procurement_model->getSingleProject($id); 
+            $data['pending_request'] = $this->Procurement_model->getAllRequestByStatus('pending', $id); 
             $data['id'] = $id;      
             $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
@@ -285,6 +286,57 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('pages/'.$page,$data);
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
+        }
+
+        public function add_request_item(){
+            $save=$this->Procurement_model->add_request_item();
+            if($save){
+                $this->session->set_flashdata('success', 'Item added successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to add item.');
+            }
+            redirect(base_url('manage_request/'.$this->input->post('pono').'/'.$this->input->post('project_id')));                        
+        }
+
+        public function delete_request_item($id, $pono, $project_id){
+            $delete = $this->Procurement_model->delete_request_item($id);
+            if($delete){
+                $this->session->set_flashdata('success', 'Item deleted successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to delete item.');
+            }
+            redirect(base_url('manage_request/'.$pono.'/'.$project_id));
+        }
+
+        public function print_purchase_request($id){
+            $page = "print_purchase_request";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}                        
+            $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);  
+            $data['item'] = $this->Procurement_model->getSingleRequest($id);
+            $data['project'] = $this->Procurement_model->getSingleProject($data['item']['project_id']);
+            $data['pono'] = $id;
+            $this->load->view('pages/'.$page,$data);            
+        }
+        public function finalize_purchase_request($pono, $project_id){
+            $delete = $this->Procurement_model->finalize_purchase_request($pono);
+            if($delete){
+                $this->session->set_flashdata('success', 'Request finalized successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to finalize request.');
+            }
+            redirect(base_url('manage_request/'.$pono.'/'.$project_id));
+        }
+        public function revert_finalize_request($pono, $project_id){
+            $delete = $this->Procurement_model->revert_finalize_request($pono);
+            if($delete){
+                $this->session->set_flashdata('success', 'Request reverted successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to revert request.');
+            }
+            redirect(base_url('manage_request/'.$pono.'/'.$project_id));
         }
 }
 ?>

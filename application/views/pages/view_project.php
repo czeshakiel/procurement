@@ -23,7 +23,7 @@
                                                     <div class="card-body ">
                                                         <i class="icofont-cart fs-3"></i>
                                                         <h6 class="mt-3 mb-0 fw-bold small-14">Purchase Request</h6>
-                                                        <span class="text-muted">400</span>
+                                                        <span class="text-muted"><?=count($pending_request);?></span>
                                                     </div>
                                                 </div>
                                             </a>
@@ -34,7 +34,7 @@
                                             <div class="card-body ">
                                                     <i class="icofont-shopping-cart fs-3"></i>
                                                 <h6 class="mt-3 mb-0 fw-bold small-14">Receiving</h6>
-                                                <span class="text-muted">17</span>
+                                                <span class="text-muted"><?=count($pending_request);?></span>
                                             </div>
                                         </div>
                                         </a>
@@ -51,11 +51,11 @@
                                         </a>
                                     </div>
                                     <div class="col-md-6 col-sm-6">
-                                        <a href="<?=base_url('reports/'.$id);?>" class="col-md-12 col-sm-12">
+                                        <a href="<?=base_url('other_request/'.$id);?>" class="col-md-12 col-sm-12">
                                         <div class="card">
                                             <div class="card-body ">
-                                                <i class="icofont-file-text fs-3"></i>
-                                                <h6 class="mt-3 mb-0 fw-bold small-14">Reports</h6>
+                                                <i class="icofont-basket fs-3"></i>
+                                                <h6 class="mt-3 mb-0 fw-bold small-14">Other Request</h6>
                                                 <span class="text-muted">14</span> 
                                             </div>
                                         </div>

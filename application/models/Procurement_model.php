@@ -313,5 +313,102 @@
             $query = $this->db->get('stocktable');
             return $query->result_array();
         }
+        public function add_request_item(){
+            $pono = $this->input->post('pono');
+            $project_id = $this->input->post('project_id');
+            $code = $this->input->post('code');
+            $quantity = $this->input->post('quantity');
+            $unit_price = $this->input->post('unit_price');
+            $supplier = $this->input->post('supplier');
+            $preferred_supplier = $this->input->post('preferred_supplier');
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
+            $requested_by = $this->session->fullname;
+            if($preferred_supplier != ""){
+                $supp = explode("_", $preferred_supplier);
+                $suppliercode = $supp[0];
+                $suppliername = $supp[1];
+            }else{
+                $supp = explode("_", $supplier);
+                $suppliercode = $supp[0];
+                $suppliername = $supp[1];
+            }
+            if($supplier == ""){
+                return false;
+            }
+            $this->db->where('code', $code);
+            $item = $this->db->get('stocks')->row_array();
+            $description = $item['description'];
+            $data = array(
+                'pono' => $pono,
+                'project_id' => $project_id,
+                'code' => $code,
+                'quantity' => $quantity,
+                'unitcost' => $unit_price,
+                'suppliercode' => $suppliercode,
+                'suppliername' => $suppliername,
+                'date_requested' => $date,
+                'time_requested' => $time,
+                'description' => $description,
+                'requested_by' => $requested_by,
+                'status' => 'pending'
+            );
+            $this->db->where('pono', $pono);
+            $this->db->where('code', $code);
+            $check=$this->db->get('purchaseorder');
+            if($check->num_rows() > 0){
+                $existing = $check->row_array();
+                $new_qty = $existing['quantity'] + $quantity;
+                $this->db->where('id', $existing['id']);
+                if($this->db->update('purchaseorder', array('quantity' => $new_qty))){
+                    return true;
+                } else {
+                    return false;
+                }
+            }else{
+                if($this->db->insert('purchaseorder', $data)){
+                    return true;
+                } else {
+                    return false;
+                }
+            } 
+        }  
+        public function delete_request_item($id){
+            $this->db->where('id', $id);
+            if($this->db->delete('purchaseorder')){
+                return true;
+            } else {
+                return false;
+            }
+        }   
+        public function getAllRequestByStatus($status,$id){
+            $this->db->where('status', $status);
+            $this->db->where('project_id', $id);
+            $query = $this->db->get('podetails');
+            return $query->result_array();            
+        }
+        public function getSingleRequest($id){
+            $this->db->where('pono', $id);
+            $query = $this->db->get('podetails');
+            return $query->row_array();            
+        }
+        public function finalize_purchase_request($pono){
+            $this->db->where('pono', $pono);
+            $query = $this->db->update('purchaseorder', array('status' => 'finalized'));
+            if($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+         public function revert_finalize_request($pono){
+            $this->db->where('pono', $pono);
+            $query = $this->db->update('purchaseorder', array('status' => 'pending'));
+            if($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

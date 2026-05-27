@@ -25,7 +25,11 @@
                         <i class="icofont-ticket fs-5"></i> <span>P/C Maintenance</span></a>
                     <!-- Menu: Sub menu ul -->                    
                 </li>                
-                
+                <li class="collapsed">
+                    <a class="m-link" href="<?=base_url('reports');?>">
+                        <i class="icofont-file-text fs-5"></i> <span>Reports</span></a>
+                    <!-- Menu: Sub menu ul -->                    
+                </li>
                 <li class="collapsed">
                     <a class="m-link" data-bs-toggle="collapse" data-bs-target="#tikit-Components" href="#"><i
                             class="icofont-ui-settings"></i> <span>Settings</span> <span class="arrow icofont-dotted-down ms-auto text-end fs-5"></span></a>
