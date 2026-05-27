@@ -70,6 +70,35 @@ LOCK TABLES `issuance` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `podetails`
+--
+
+DROP TABLE IF EXISTS `podetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `podetails` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `pono` varchar(100) DEFAULT NULL,
+  `date_requested` date DEFAULT NULL,
+  `requested_by` varchar(100) DEFAULT NULL,
+  `project_id` int DEFAULT NULL,
+  `trantype` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'pending',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `podetails`
+--
+
+LOCK TABLES `podetails` WRITE;
+/*!40000 ALTER TABLE `podetails` DISABLE KEYS */;
+INSERT INTO `podetails` VALUES (1,'PR-20260526095817','2026-05-26','Eczekiel Aboy',1,'charge','pending');
+/*!40000 ALTER TABLE `podetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `project`
 --
 
@@ -125,7 +154,7 @@ CREATE TABLE `purchaseorder` (
   `time_received` time DEFAULT NULL,
   `received_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -134,6 +163,7 @@ CREATE TABLE `purchaseorder` (
 
 LOCK TABLES `purchaseorder` WRITE;
 /*!40000 ALTER TABLE `purchaseorder` DISABLE KEYS */;
+INSERT INTO `purchaseorder` VALUES (2,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',15,53,'1','finalized','2026-05-27','09:34:28','Eczekiel Aboy',NULL,NULL,NULL),(3,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134427','Plywood 6mm',50,413,'1','finalized','2026-05-27','09:35:00','Eczekiel Aboy',NULL,NULL,NULL),(4,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134508','Plywood 12mm',50,430,'1','finalized','2026-05-27','09:35:16','Eczekiel Aboy',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `purchaseorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,4 +287,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-23 16:32:47
+-- Dump completed on 2026-05-27 16:00:47
