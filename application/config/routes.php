@@ -50,6 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 #
+$route['rr_print/(:any)'] = 'pages/rr_print/$1';
+$route['post_receiving'] = 'pages/post_receiving';
 $route['manage_receiving/(:any)/(:any)'] = 'pages/manage_receiving/$1/$2';
 $route['receiving/(:any)'] = 'pages/receiving/$1';
 $route['cancel_request/(:any)/(:any)'] = 'pages/cancel_request/$1/$2';

@@ -423,9 +423,88 @@
         }
         public function getAllReceivingDetails($id){
             $this->db->where('pono', $id);
-            $this->db->where('status', 'finalized');
+            $this->db->where('status', 'finalized');    
+            $this->db->order_by('id', 'ASC');        
             $query = $this->db->get('purchaseorder');
             return $query->result_array();            
+        }
+        public function post_receiving($rrno,$pono,$project_id){  
+            // $codes = $this->input->post('code');
+            // $suppliercode = $this->input->post('suppliercode');
+            // $suppliername = $this->input->post('suppliername');
+            // $description = $this->input->post('description');
+            // $unitcost = $this->input->post('unitcost');
+            $quantity = $this->input->post('quantity');
+            $this->db->where('pono', $pono);
+            $this->db->where('status', 'finalized');
+            $this->db->order_by('id', 'ASC');
+            $query = $this->db->get('purchaseorder');
+            $requests = $query->result_array();
+            $date=date('Y-m-d');
+            $time=date('H:i:s');  
+            $user=$this->session->fullname;  
+            $count=0;
+            foreach($requests as $index => $request){
+                if($quantity[$index] >= $request['quantity']){
+                    $quantity[$index] = $request['quantity'];
+                }else{
+                    $remqty = $request['quantity'] - $quantity[$index];
+                    $this->db->insert('purchaseorder', array(
+                        'pono' => $pono,
+                        'project_id' => $project_id,
+                        'code' => $request['code'],
+                        'quantity' => $remqty,
+                        'unitcost' => $request['unitcost'],
+                        'suppliercode' => $request['suppliercode'],
+                        'suppliername' => $request['suppliername'],
+                        'date_requested' => $date,
+                        'time_requested' => $time,
+                        'description' => $request['description'],
+                        'requested_by' => $user,
+                        'status' => 'finalized'
+                    ));
+                    $count++;
+                }
+                $data = array(
+                'rrno' => $rrno,
+                'suppliercode' => $request['suppliercode'],
+                'suppliername' => $request['suppliername'],
+                'code' => $request['code'],
+                'description' => $request['description'],
+                'unitcost' => $request['unitcost'],
+                'quantity' => $quantity[$index],                
+                'project_id' => $project_id,                
+                'datearray' => $date,
+                'timearray' => $time
+                );                
+                if($quantity[$index] > 0){
+                    $this->db->insert('stocktable', $data);
+                    $this->db->where('id', $request['id']);
+                    $this->db->update('purchaseorder', array('rrno' => $rrno,'date_received' => $date,'time_received' => $time,'received_by' => $user,'status' => 'received'));
+                }else{
+                    $count++;
+                }
+            }
+            if($count == 0){                                
+                $this->db->where('pono', $pono);
+                $this->db->update('podetails', array('status' => 'received','date_received' => $date,'received_by' => $user));                
+            }
+        }
+        public function getReceivingReport($id){
+            $this->db->where('rrno', $id);
+            $query = $this->db->get('stocktable');
+            return $query->result_array();            
+        }
+
+        public function getReceivingReportOrder($id){
+            $this->db->where('rrno', $id);            
+            $query = $this->db->get('purchaseorder');
+            return $query->result_array();            
+        }
+        public function getReceivingCount(){            
+            $this->db->group_by('rrno');
+            $query = $this->db->get('stocktable');
+            return $query->num_rows();
         }
     }
 ?>

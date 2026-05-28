@@ -39,19 +39,24 @@
                                             <th>Code</th>
                                             <th>Description</th>
                                             <th>Unit</th>
-                                            <th>Location</th>
+                                            <th>SOH</th>
                                             <th width="10%">Actions</th>  
                                         </tr>
                                     </thead>
                                     <?php
                                         $x=1;                                        
-                                        foreach($stocks as $item){                                                                                   
+                                        foreach($stocks as $item){ 
+                                            $qry=$this->Procurement_model->getQty($item['code']);
+                                            $soh=0;
+                                            foreach($qry as $q){
+                                                $soh +=$q['quantity'];
+                                            }                                                                              
                                             echo "<tr>";
                                             echo "<td>".$x."</td>";
                                             echo "<td>".$item['code']."</td>";
                                             echo "<td>".$item['description']."</td>";
                                             echo "<td>".$item['unit']."</td>";
-                                            echo "<td>".$item['loc']."</td>";
+                                            echo "<td align='center'>".$soh."</td>";
                                             echo "<td>";
                                             ?>  
                                                  <button type="button" class="btn btn-outline-secondary btn-sm editStock" data-bs-toggle="modal" data-bs-target="#stockadd" data-id="<?=$item['description'].'_'.$item['code'].'_'.$item['unit'].'_'.$item['id'];?>"><i class="icofont-edit text-success"></i></button>

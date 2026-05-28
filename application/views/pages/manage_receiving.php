@@ -28,7 +28,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="list-view">
                         <div class="row clearfix g-3">
-                            <form method="post" action="<?=base_url('post_receiving');?>">
+                            <form method="post" action="<?=base_url('post_receiving');?>" onsubmit="return confirm('Are you sure you want to post this receiving report?');">
                                 <input type="hidden" name="pono" value="<?=$pono;?>">
                                 <input type="hidden" name="project_id" value="<?=$project_id;?>">
                             <div class="col-lg-12">
@@ -36,7 +36,7 @@
                                     <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                         <h6 class="mb-0 fw-bold ">Requested Items</h6>
                                         <div class="d-flex py-2 project-tab flex-wrap w-sm-100">
-                                            <!-- <a href="<?=base_url('print_purchase_request/'.$pono)?>" class="btn btn-dark w-sm-100 createproject" target="_blank"><i class="icofont-send-mail me-2 fs-6"></i>Post</a> -->
+                                            <button type="submit" value="Post" class="btn btn-dark w-sm-100"><i class="icofont-send-mail me-2 fs-6"></i>Post</button>                                             
                                             <a href="#" onclick="window.close();" class="btn btn-danger w-sm-100  text-white"><i class="icofont-exit me-2 fs-6"></i>Close</a>
                                         </div>
                                     </div>
@@ -78,6 +78,7 @@
                                     </div>
                                 </div>
                             </div>
+</form>
                         </div><!-- Row End -->
                     </div>                
                 </div>

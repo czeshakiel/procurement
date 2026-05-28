@@ -384,5 +384,25 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
         }
+        public function post_receiving(){
+            $rrno="RRNO-".date('Ymd')."-".str_pad($this->Procurement_model->getReceivingCount() + 1, 4, '0', STR_PAD_LEFT);
+            $pono = $this->input->post('pono');
+            $project_id = $this->input->post('project_id'); 
+            $this->Procurement_model->post_receiving($rrno,$pono,$project_id);                
+             redirect(base_url('rr_print/'.$rrno));                        
+        }
+
+         public function rr_print($id){
+            $page = "rr_print";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}                          
+            $data['item'] = $this->Procurement_model->getReceivingReport($id);
+            $data['order'] = $this->Procurement_model->getReceivingReportOrder($id);
+            $data['project'] = $this->Procurement_model->getSingleProject($data['item'][0]['project_id']);
+            $data['rrno'] = $id;
+            $this->load->view('pages/'.$page,$data);            
+        }
 }
 ?>

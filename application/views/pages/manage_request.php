@@ -61,6 +61,7 @@
                                                     </thead>
                                                     <?php
                                                     if(count($items) > 0){
+                                                        $x=1;
                                                         foreach($items as $item){
                                                             echo "<form action='".base_url('add_request_item')."' method='post'>";
                                                             echo "<input type='hidden' name='project_id' value='".$project_id."'>";
@@ -75,12 +76,12 @@
                                                             echo "<tr>";
                                                             echo "<td>".$item['description']."</td>";
                                                             echo "<td>".$soh."</td>";
-                                                            echo "<td>";
-                                                                echo "<input type='radio' name='preferred_supplier' value='' checked style='display: none;'>";
+                                                            echo "<td>";                                                                
                                                             foreach($qry as $q){
-                                                                echo "<input type='radio' name='preferred_supplier' value='".$q['suppliercode']."_".$q['suppliername']."' onclick='selectPrice(".$q['unitcost'].")'> ".$q['suppliername']."<br>";
+                                                                echo "<input type='radio' name='preferred_supplier' value='".$q['suppliercode']."_".$q['suppliername']."' onclick='selectPrice(".$q['unitcost'].", ".$x.")'> ".$q['suppliername']." (".number_format($q['unitcost'], 2).")<br>";
                                                             }
-                                                            ?>
+                                                            ?>                                                        
+                                                            <input type='radio' name='preferred_supplier' value='' checked onclick='selectPrice("", <?=$x?>)'> No Preferred Supplier
                                                             <select name='supplier' class='form-control form-control-sm'>
                                                                 <option value=''>Select Supplier</option>
                                                                 <?php foreach($suppliers as $supplier): ?>
@@ -90,10 +91,11 @@
                                                             <?php
                                                             echo "</td>";
                                                             echo "<td><input type='text' name='quantity' class='form-control form-control-sm' required></td>";
-                                                            echo "<td><input type='text' name='unit_price' class='form-control form-control-sm' required id='unit_price'></td>";
+                                                            echo "<td><input type='text' name='unit_price' class='form-control form-control-sm' required id='unit_price$x'></td>";
                                                             echo "<td><input type='submit' class='btn btn-primary btn-sm' value='Add Item'></td>";
                                                             echo "</tr>";
                                                             echo "</form>";
+                                                            $x++;
                                                         }
                                                     }else{
                                                         echo "<p>No items found.</p>";

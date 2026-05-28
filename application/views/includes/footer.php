@@ -99,8 +99,9 @@
         var id=$(this).data('id');
         document.getElementById('request_project_id').value = id;        
     });
-    function selectPrice(price){
-        document.getElementById('unit_price').value = price;
+    function selectPrice(price,id){
+        
+        document.getElementById('unit_price' + id).value = price;
     }
 </script>
 
