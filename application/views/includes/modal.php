@@ -370,3 +370,60 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="createOtherRequest" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Create Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('create_other_request');?>" method="post">
+                    <input type="hidden" name="project_id" id="other_request_project_id">
+                    <input type="hidden" name="id" id="other_request_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Requested</label>
+                        <input type="date" class="form-control" name="datearray" id="other_request_date" required>
+                    </div>                                    
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Description</label>
+                        <input type="text" class="form-control" name="description" id="other_request_description" required>
+                    </div>                                                        
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createIssuance" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Create Issuance</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('create_issuance');?>" method="post">
+                    <input type="hidden" name="project_id" id="issuance_project_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Requested</label>
+                        <input type="date" class="form-control" name="date_requested" required>
+                    </div>                                    
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Requested By</label>
+                        <input type="text" class="form-control" name="requested_by" required>
+                    </div>                                    
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

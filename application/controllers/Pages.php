@@ -216,6 +216,10 @@ date_default_timezone_set('Asia/Manila');
             $data['title'] = "Manage Project";
             $data['project'] = $this->Procurement_model->getSingleProject($id); 
             $data['pending_request'] = $this->Procurement_model->getAllRequestByStatus('pending', $id); 
+            $data['pending_other_request'] = $this->Procurement_model->getAllOtherRequests($id, 'pending'); 
+            $data['issued_other_request'] = $this->Procurement_model->getAllOtherRequests($id, 'issued');
+            $data['pending_issuance'] = $this->Procurement_model->getAllIssuance($id,'pending');  
+            $data['issued_issuance'] = $this->Procurement_model->getAllIssuance($id,'issued');
             $data['id'] = $id;      
             $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
@@ -403,6 +407,110 @@ date_default_timezone_set('Asia/Manila');
             $data['project'] = $this->Procurement_model->getSingleProject($data['item'][0]['project_id']);
             $data['rrno'] = $id;
             $this->load->view('pages/'.$page,$data);            
+        }
+
+        public function other_request($id){
+            $page = "other_request";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Other Requests";
+            $data['id'] = $id;  
+            $data['requests'] = $this->Procurement_model->getAllOtherRequests($id,'pending');  
+            $data['issuedrequests'] = $this->Procurement_model->getAllOtherRequests($id,'issued');
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function create_other_request(){
+            $save=$this->Procurement_model->save_other_request();
+            if($save){
+                $this->session->set_flashdata('success', 'Other request saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to save other request.');
+            }
+            redirect(base_url('other_request/'.$this->input->post('project_id')));
+        }
+
+        public function update_other_request($request_id, $project_id,$status){
+            $delete = $this->Procurement_model->update_other_request($request_id,$status);
+            if($delete){
+                $this->session->set_flashdata('success', 'Other request updated successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to update other request.');
+            }
+            redirect(base_url('other_request/'.$project_id));
+        }
+
+        public function issuance($id){
+            $page = "issuance";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Issuance";
+            $data['id'] = $id;  
+            $data['requests'] = $this->Procurement_model->getAllIssuance($id,'pending');  
+            $data['issuedrequests'] = $this->Procurement_model->getAllIssuance($id,'issued');
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+        public function create_issuance(){            
+            $save=$this->Procurement_model->save_issuance();                
+        }
+
+        public function manage_issuance($id,$project_id){
+            $page = "manage_issuance";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($project_id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('issuance/'.$project_id)."'>Issuance</a></small> >> Manage Issuance";
+            $data['pono'] = $id;  
+            $data['project_id'] = $project_id;
+            $data['requests'] = $this->Procurement_model->getAllIssuanceDetails($id);
+            $data['items'] = array();
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function search_item_issuance(){
+            $id=$this->input->post('pono');
+            $project_id=$this->input->post('project_id');
+            $description=$this->input->post('description');
+            $page = "manage_issuance";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            $project = $this->Procurement_model->getSingleProject($project_id);
+            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('issuance/'.$project_id)."'>Issuance</a></small> >> Manage Issuance";
+            $data['pono'] = $id;  
+            $data['project_id'] = $project_id;
+            $data['requests'] = $this->Procurement_model->getAllIssuanceDetails($id);
+            $data['items'] = $this->Procurement_model->getItemsByProjectDescription($description);            
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
         }
 }
 ?>

@@ -103,6 +103,25 @@
         
         document.getElementById('unit_price' + id).value = price;
     }
+    $('.createOtherRequest').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('other_request_project_id').value = id;
+        document.getElementById('other_request_description').value = "";
+        document.getElementById('other_request_date').value = "";        
+        document.getElementById('other_request_id').value = "";
+    });
+    $('.editOtherRequest').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('other_request_project_id').value = id[0];
+        document.getElementById('other_request_description').value = id[1];
+        document.getElementById('other_request_date').value = id[2];
+        document.getElementById('other_request_id').value = id[3];
+    });
+     $('.createIssuance').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('issuance_project_id').value = id;        
+    });
 </script>
 
 </body>

@@ -506,5 +506,108 @@
             $query = $this->db->get('stocktable');
             return $query->num_rows();
         }
+        public function getAllOtherRequests($id,$status){
+            $this->db->where('project_id', $id);
+            $this->db->where('status', $status);
+            $this->db->order_by('datearray', 'DESC');
+            $query = $this->db->get('other_request');
+            return $query->result_array();            
+        }
+        public function save_other_request(){
+            $id = $this->input->post('id');
+            $project_id = $this->input->post('project_id');
+            $description = $this->input->post('description');
+            $date=$this->input->post('datearray');
+            $time=date('H:i:s');
+            if($id==""){
+                $data = array(
+                    'project_id' => $project_id,
+                    'description' => $description,
+                    'datearray' => $date,
+                    'timearray' => $time,
+                    'status' => 'pending'
+                );
+                if($this->db->insert('other_request', $data)){
+                    return true;
+                } else {
+                    return false;
+                }               
+            } else {                
+                $data = array(
+                    'description' => $description,
+                    'datearray' => $date,
+                    'timearray' => $time
+                );
+                $this->db->where('id', $id);
+                $this->db->update('other_request', $data);
+                return true;
+            }
+        }
+         public function delete_other_request($id){
+            $this->db->where('id', $id);
+            if($this->db->delete('other_request')){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public function update_other_request($request_id,$status){
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
+            $user=$this->session->fullname;
+            $this->db->where('id', $request_id);            
+            $query = $this->db->update('other_request', array('status' => $status, 'updated_date' => $date, 'update_time' => $time, 'updated_by' => $user));
+            if($query){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        public function getAllIssuance($id,$status){
+            $this->db->where('project_id', $id);
+            $this->db->where('status', $status);
+            $this->db->order_by('date_requested', 'DESC');
+            $query = $this->db->get('issuancedetails');
+            return $query->result_array();
+        }
+
+        public function save_issuance(){
+            $project_id = $this->input->post('project_id');
+            $pono = 'IS-'.date('YmdHis');
+            $date_requested = $this->input->post('date_requested');
+            $requested_by = $this->input->post('requested_by');
+            $data = array(
+                'project_id' => $project_id,
+                'issuance_id' => $pono,
+                'date_requested' => $date_requested,
+                'requested_by' => $requested_by,
+                'status' => 'pending'
+            );
+            if($this->db->insert('issuancedetails', $data)){
+                redirect('manage_issuance/'.$pono.'/'.$project_id);
+            } else {
+                $this->session->set_flashdata('error', 'Unable to create issuance. Please try again.');
+                redirect('issuance/'.$project_id);
+            }
+        }
+        public function getAllIssuanceDetails($id){
+            $this->db->where('issuance_id', $id);
+            $query = $this->db->get('issuance');
+            return $query->result_array();            
+        }
+
+        public function getAllReceivedRequests($id){
+            $this->db->where('project_id', $id);
+            $this->db->where('status', 'received');
+            $this->db->order_by('date_requested', 'DESC');
+            $query = $this->db->get('podetails');
+            return $query->result_array();            
+        }
+
+        public function getItemsByProjectDescription($description){
+            $query = $this->db->query('SELECT s.* FROM stocks s INNER JOIN stocktable st ON st.code = s.code WHERE s.description LIKE "%'.$description.'%" AND st.project_id = "'.$this->input->post('project_id').'" GROUP BY s.code');
+            return $query->result_array();
+        }
+        
     }
 ?>

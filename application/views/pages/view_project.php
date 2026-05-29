@@ -45,7 +45,7 @@
                                             <div class="card-body ">
                                                     <i class="icofont-send-mail fs-3"></i>
                                                 <h6 class="mt-3 mb-0 fw-bold small-14">Issuance</h6>
-                                                <span class="text-muted">06</span>
+                                                <span class="text-muted"><?=count($pending_issuance)+count($issued_issuance);?></span>
                                             </div>
                                         </div>
                                         </a>
@@ -56,7 +56,7 @@
                                             <div class="card-body ">
                                                 <i class="icofont-basket fs-3"></i>
                                                 <h6 class="mt-3 mb-0 fw-bold small-14">Other Request</h6>
-                                                <span class="text-muted">14</span> 
+                                                <span class="text-muted"><?=count($pending_other_request)+count($issued_other_request);?></span>
                                             </div>
                                         </div>
                                         </a>

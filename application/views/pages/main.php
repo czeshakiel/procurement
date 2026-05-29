@@ -46,6 +46,17 @@
                                         $date2=date_create(date('Y-m-d'));
                                         $diff=date_diff($date1,$date2);
                                         $days = $diff->format("%a");
+                                        $accu_amount=0;
+                                        $query = $this->Procurement_model->getAllReceivedRequests($item['id']);
+                                        foreach($query as $request){
+                                            if($request['status'] == 'received'){
+                                                $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['unitcost']*$details['quantity'];
+                                                }
+                                            }
+                                        }
+                                        $percent = ($accu_amount / $item['amount_approved']) * 100;
                                     ?>
                                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                         <div class="card">
@@ -92,10 +103,10 @@
                                                 <div class="dividers-block"></div>
                                                 <div class="d-flex align-items-center justify-content-between mb-2">
                                                     <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
-                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-money"></i> <?=number_format($accu_amount, 2);?></span>
                                                 </div>
                                                 <div class="progress" style="height: 8px;">                                                   
-                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 42%" aria-valuenow="5000000" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: <?=$percent;?>%" aria-valuenow="<?=$accu_amount;?>" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -180,63 +191,74 @@
                                         <?php                                    
                                         foreach($continuing_projects as $item){
                                         $date1=date_create($item['date_started']);
-                                            $date2=date_create(date('Y-m-d'));
-                                            $diff=date_diff($date1,$date2);
-                                            $days = $diff->format("%a");
-                                        ?>
-                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between mt-5">
-                                                        <div class="lesson_name">
-                                                            <div class="project-block light-info-bg">
-                                                                <i class="icofont-dropbox"></i>
-                                                            </div>
-                                                            <span class="small text-muted project_name fw-bold"><?=$item['projectname'];?></span>
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2"><?=$item['projectname'];?></h6>
+                                        $date2=date_create(date('Y-m-d'));
+                                        $diff=date_diff($date1,$date2);
+                                        $days = $diff->format("%a");
+                                        $accu_amount=0;
+                                        $query = $this->Procurement_model->getAllReceivedRequests($item['id']);
+                                        foreach($query as $request){
+                                            if($request['status'] == 'received'){
+                                                $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['unitcost']*$details['quantity'];
+                                                }
+                                            }
+                                        }
+                                        $percent = ($accu_amount / $item['amount_approved']) * 100;
+                                    ?>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-dropbox"></i>
                                                         </div>
-                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
-                                                            <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
-                                                        </div>
-                                                    </div>                                                
-                                                    <div class="row g-2 pt-4">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-money"></i>
-                                                                <span class="ms-2"><?=number_format($item['amount_approved'], 2);?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-sand-clock"></i>
-                                                                <span class="ms-2"><?=$days;?> Days Past</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2"><?=$item['contractor'];?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-calendar"></i>
-                                                                <span class="ms-2"><?=date('m/d/Y', strtotime($item['date_started']));?></span>
-                                                            </div>
+                                                        <span class="small text-muted project_name fw-bold"><?=$item['projectname'];?></span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2"><?=$item['projectname'];?></h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
+                                                        <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-money"></i>
+                                                            <span class="ms-2"><?=number_format($item['amount_approved'], 2);?></span>
                                                         </div>
                                                     </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
-                                                        <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2"><?=$days;?> Days Past</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress" style="height: 8px;">                                                   
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 42%" aria-valuenow="5000000" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2"><?=$item['contractor'];?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-calendar"></i>
+                                                            <span class="ms-2"><?=date('m/d/Y', strtotime($item['date_started']));?></span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-money"></i> <?=number_format($accu_amount, 2);?></span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">                                                   
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: <?=$percent;?>%" aria-valuenow="<?=$accu_amount;?>" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                </div>
                                             </div>
-                                        </div>                          
+                                        </div>
+                                    </div>                          
                                         <?php
                                         }
                                         ?>          
@@ -249,63 +271,74 @@
                                         <?php                                    
                                         foreach($completed_projects as $item){
                                         $date1=date_create($item['date_started']);
-                                            $date2=date_create(date('Y-m-d'));
-                                            $diff=date_diff($date1,$date2);
-                                            $days = $diff->format("%a");
-                                        ?>
-                                        <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <div class="d-flex align-items-center justify-content-between mt-5">
-                                                        <div class="lesson_name">
-                                                            <div class="project-block light-info-bg">
-                                                                <i class="icofont-dropbox"></i>
-                                                            </div>
-                                                            <span class="small text-muted project_name fw-bold"><?=$item['projectname'];?></span>
-                                                            <h6 class="mb-0 fw-bold  fs-6  mb-2"><?=$item['projectname'];?></h6>
+                                        $date2=date_create(date('Y-m-d'));
+                                        $diff=date_diff($date1,$date2);
+                                        $days = $diff->format("%a");
+                                        $accu_amount=0;
+                                        $query = $this->Procurement_model->getAllReceivedRequests($item['id']);
+                                        foreach($query as $request){
+                                            if($request['status'] == 'received'){
+                                                $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['unitcost']*$details['quantity'];
+                                                }
+                                            }
+                                        }
+                                        $percent = ($accu_amount / $item['amount_approved']) * 100;
+                                    ?>
+                                    <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center justify-content-between mt-5">
+                                                    <div class="lesson_name">
+                                                        <div class="project-block light-info-bg">
+                                                            <i class="icofont-dropbox"></i>
                                                         </div>
-                                                        <div class="btn-group" role="group" aria-label="Basic outlined example">
-                                                            <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
-                                                            <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
-                                                        </div>
-                                                    </div>                                                
-                                                    <div class="row g-2 pt-4">
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-money"></i>
-                                                                <span class="ms-2"><?=number_format($item['amount_approved'], 2);?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-sand-clock"></i>
-                                                                <span class="ms-2"><?=$days;?> Days Past</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-group-students "></i>
-                                                                <span class="ms-2"><?=$item['contractor'];?></span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="icofont-calendar"></i>
-                                                                <span class="ms-2"><?=date('m/d/Y', strtotime($item['date_started']));?></span>
-                                                            </div>
+                                                        <span class="small text-muted project_name fw-bold"><?=$item['projectname'];?></span>
+                                                        <h6 class="mb-0 fw-bold  fs-6  mb-2"><?=$item['projectname'];?></h6>
+                                                    </div>
+                                                    <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                                        <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
+                                                        <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                    </div>
+                                                </div>                                                
+                                                <div class="row g-2 pt-4">
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-money"></i>
+                                                            <span class="ms-2"><?=number_format($item['amount_approved'], 2);?></span>
                                                         </div>
                                                     </div>
-                                                    <div class="dividers-block"></div>
-                                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                                        <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
-                                                        <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-sand-clock"></i>
+                                                            <span class="ms-2"><?=$days;?> Days Past</span>
+                                                        </div>
                                                     </div>
-                                                    <div class="progress" style="height: 8px;">                                                   
-                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 42%" aria-valuenow="5000000" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-group-students "></i>
+                                                            <span class="ms-2"><?=$item['contractor'];?></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="icofont-calendar"></i>
+                                                            <span class="ms-2"><?=date('m/d/Y', strtotime($item['date_started']));?></span>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="dividers-block"></div>
+                                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                                    <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
+                                                    <span class="small light-danger-bg  p-1 rounded"><i class="icofont-money"></i> <?=number_format($accu_amount, 2);?></span>
+                                                </div>
+                                                <div class="progress" style="height: 8px;">                                                   
+                                                    <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: <?=$percent;?>%" aria-valuenow="<?=$accu_amount;?>" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
+                                                </div>
                                             </div>
-                                        </div>                          
+                                        </div>
+                                    </div>                           
                                         <?php
                                         }
                                         ?>          
