@@ -99,18 +99,15 @@
                             }
                             if($status==""){
                                 $print="style='display:none;'";
-                                $save="style='display:none;'";
-                                $edit="style='display:none;'";
+                                $save="style='display:none;'";                                
                             }
                             if($status=="pending"){
                                 $print="style='display:none;'";
-                                $save="";
-                                $edit="style='display:none;'";
+                                $save="";                                
                             }
-                            if($status=="finalized"){
+                            if($status=="issued"){
                                 $print="";
-                                $save="style='display:none;'";
-                                $edit="";
+                                $save="style='display:none;'";                                
                             }
                             ?>
                             <div class="col-lg-12">
@@ -118,35 +115,29 @@
                                     <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
                                         <h6 class="mb-0 fw-bold ">Requested Items</h6>
                                         <div class="d-flex py-2 project-tab flex-wrap w-sm-100">
-                                            <a href="<?=base_url('print_purchase_request/'.$pono)?>" class="btn btn-dark w-sm-100 createproject" target="_blank" <?=$print?>><i class="icofont-print me-2 fs-6"></i>Print Request</a>
-                                            <a href="<?=base_url('finalize_purchase_request/'.$pono."/".$project_id)?>" class="btn btn-warning w-sm-100 createproject" onclick="return confirm('Are you sure you want to finalize this request?'); return false;" <?=$save?>><i class="icofont-download me-2 fs-6"></i>Finalize Request</a>                                            
-                                            <a href="<?=base_url('revert_finalize_request/'.$pono."/".$project_id)?>" class="btn btn-info w-sm-100 createproject" onclick="return confirm('Are you sure you want to revert the finalization of this request?'); return false;" <?=$edit?>><i class="icofont-refresh me-2 fs-6"></i>Revert Finalize</a>                                            
+                                            <a href="<?=base_url('print_issuance/'.$pono)?>" class="btn btn-dark w-sm-100" target="_blank" <?=$print?>><i class="icofont-print me-2 fs-6"></i>Print Request</a>
+                                            <a href="<?=base_url('post_issuance/'.$pono."/".$project_id)?>" class="btn btn-warning w-sm-100" onclick="return confirm('Are you sure you want to post this issuance? Once posted, it cannot be reverted! Please check all items before posting.'); return false;" <?=$save?>><i class="icofont-download me-2 fs-6"></i>Post Issuance</a>
                                         </div>
                                     </div>
                                     <div class="card-body">
                                         <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width:100%">
                                             <thead>
                                                 <tr>
+                                                    <th>Issuance ID</th>                                                       
                                                     <th>Description</th> 
-                                                    <th>Quantity</th>
-                                                    <th>Supplier</th> 
-                                                    <th>Unit Price</th>   
-                                                    <th>Amount</th>
+                                                    <th>Quantity</th>                                                                                                                                                            
                                                     <th>Actions</th>  
                                                 </tr>
                                             </thead>
                                             <?php
-                                            foreach($requests as $request){
-                                                $amount = $request['quantity'] * $request['unitcost'];
+                                            foreach($requests as $request){                                                
                                                 echo "<tr>";
+                                                echo "<td>".$request['issuance_id']."</td>";                                                
                                                 echo "<td>".$request['description']."</td>";
-                                                echo "<td>".$request['quantity']."</td>";
-                                                echo "<td>".$request['suppliername']."</td>";
-                                                echo "<td align='right'>".number_format($request['unitcost'], 2)."</td>";
-                                                echo "<td align='right'>".number_format($amount, 2)."</td>";
+                                                echo "<td>".$request['quantity']."</td>";                                                
                                                 echo "<td align='center'>";
                                                 ?>
-                                                <a href="<?php echo base_url('delete_request_item/'.$request['id'].'/'.$pono.'/'.$project_id); ?>" class="btn btn-danger btn-sm text-white" onclick="return confirm('Are you sure you want to delete this item?');" <?=$save;?>><i class="icofont-trash"></i> Delete</a>
+                                                <a href="<?php echo base_url('delete_request_item_issuance/'.$request['code'].'/'.$pono.'/'.$project_id); ?>" class="btn btn-danger btn-sm text-white" onclick="return confirm('Are you sure you want to delete this item?');" <?=$save;?>><i class="icofont-trash"></i> Delete</a>
                                                 <?php
                                                 echo "</td>";
                                                 echo "</tr>";

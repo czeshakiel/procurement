@@ -50,6 +50,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 #
+$route['print_issuance/(:any)'] = 'pages/print_issuance/$1';
+$route['post_issuance/(:any)/(:any)'] = 'pages/post_issuance/$1/$2';
+$route['delete_request_item_issuance/(:any)/(:any)/(:any)'] = 'pages/delete_request_item_issuance/$1/$2/$3';
+$route['add_request_item_issuance'] = 'pages/add_request_item_issuance';
 $route['search_item_issuance'] = 'pages/search_item_issuance';
 $route['manage_issuance/(:any)/(:any)'] = 'pages/manage_issuance/$1/$2';
 $route['create_issuance'] = 'pages/create_issuance';

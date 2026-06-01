@@ -45,7 +45,7 @@
                                             <div class="card-body ">
                                                     <i class="icofont-send-mail fs-3"></i>
                                                 <h6 class="mt-3 mb-0 fw-bold small-14">Issuance</h6>
-                                                <span class="text-muted"><?=count($pending_issuance)+count($issued_issuance);?></span>
+                                                <span class="text-muted"><?=count($pending_issuance);?></span>
                                             </div>
                                         </div>
                                         </a>

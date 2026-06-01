@@ -590,9 +590,8 @@
                 redirect('issuance/'.$project_id);
             }
         }
-        public function getAllIssuanceDetails($id){
-            $this->db->where('issuance_id', $id);
-            $query = $this->db->get('issuance');
+        public function getAllIssuanceDetails($id){            
+            $query = $this->db->query('SELECT *,SUM(quantity) as quantity FROM issuance WHERE issuance_id = "'.$id.'" GROUP BY code');
             return $query->result_array();            
         }
 
@@ -608,6 +607,134 @@
             $query = $this->db->query('SELECT s.* FROM stocks s INNER JOIN stocktable st ON st.code = s.code WHERE s.description LIKE "%'.$description.'%" AND st.project_id = "'.$this->input->post('project_id').'" GROUP BY s.code');
             return $query->result_array();
         }
-        
+
+        public function add_request_item_issuance(){
+            $issuance_id = $this->input->post('pono');
+            $project_id = $this->input->post('project_id');
+            $code = $this->input->post('code');
+            $quantity = $this->input->post('quantity');            
+            $date=date('Y-m-d');
+            $time=date('H:i:s');
+            $requested_by = $this->session->fullname;
+            $rcqty=0;
+            $qry=$this->db->query("SELECT SUM(quantity) as reqqty FROM issuance WHERE code = '$code' AND issuance_id = '$issuance_id' AND status = 'pending'");
+            if($qry->num_rows() > 0){
+                $res = $qry->row_array();
+                $rcqty = $quantity + $res['reqqty'];
+            }
+            $tsoh=0;
+            $check=$this->db->query("SELECT SUM(quantity) as totalsoh FROM stocktable WHERE code = '$code' AND project_id = '$project_id' GROUP BY code");
+            if($check->num_rows() > 0){
+                $res = $check->row_array();
+                $tsoh = $res['totalsoh'];             
+            }
+            if($rcqty > $tsoh){
+                return false;
+            }
+            $query=$this->db->query('SELECT SUM(quantity) as soh,`description`,rrno FROM stocktable WHERE code = "'.$code.'" AND project_id = "'.$project_id.'" GROUP BY rrno,code ORDER BY datearray ASC');
+            $items = $query->result_array();
+            $description = "";
+            $reqqty = $quantity;
+            foreach($items as $item){
+                $soh = $item['soh'];
+                $description = $item['description'];
+                $rrno = $item['rrno'];
+                if($soh > 0 && $reqqty > 0){                
+                    if($soh > $reqqty){
+                        $data = array(
+                            'issuance_id' => $issuance_id,
+                            'project_id' => $project_id,
+                            'code' => $code,
+                            'quantity' => $reqqty,                             
+                            'datearray' => $date,
+                            'timearray' => $time,
+                            'description' => $description,
+                            'rrno' => $rrno,
+                            'username' => $requested_by,
+                            'status' => 'pending'
+                        );
+                        $query=$this->db->insert('issuance', $data);
+                        $reqqty = 0;
+                    }else{
+                        $data = array(
+                            'issuance_id' => $issuance_id,
+                            'project_id' => $project_id,
+                            'code' => $code,
+                            'quantity' => $soh,                             
+                            'datearray' => $date,
+                            'timearray' => $time,
+                            'description' => $description,
+                            'rrno' => $rrno,
+                            'username' => $requested_by,
+                            'status' => 'pending'
+                        );
+                        $query=$this->db->insert('issuance', $data);
+                        $reqqty = $reqqty - $soh;
+                    }
+                }            
+            }    
+            if($query){                
+                return true;                    
+            } else {
+                return false;
+            }
+        }        
+         public function delete_issuance_item($id){
+            $this->db->where('id', $id);
+            if($this->db->delete('issuance')){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        public function delete_request_item_issuance($id,$pono){
+            $this->db->where('issuance_id', $pono);
+            $this->db->where('code', $id);
+            $this->db->where('status', 'pending');
+            if($this->db->delete('issuance')){
+                return true;
+            } else {
+                return false;
+            }
+        } 
+        public function post_issuance($issuance_id){
+            $date=date('Y-m-d');
+            $time=date('H:i:s');  
+            $user=$this->session->fullname;  
+            $qry=$this->db->query("SELECT * FROM issuance WHERE issuance_id = '$issuance_id' AND status = 'pending'");
+            $items = $qry->result_array();
+            foreach($items as $item){
+                $qry=$this->db->query("SELECT * FROM stocktable WHERE code = '".$item['code']."' AND project_id = '".$item['project_id']."' AND quantity > 0 AND rrno = '".$item['rrno']."' GROUP BY code");
+                $row=$qry->row_array();
+                $data=array(
+                    'code' => $item['code'],
+                    'description' => $item['description'],
+                    'quantity' => -$item['quantity'],
+                    'project_id' => $item['project_id'],
+                    'datearray' => $date,
+                    'timearray' => $time,                    
+                    'rrno' => $item['rrno'],
+                    'suppliercode' => $row['suppliercode'],
+                    'suppliername' => $row['suppliername'],
+                    'unitcost' => $row['unitcost']
+                );
+                if($this->db->insert('stocktable', $data)){
+                    $this->db->where('id', $item['id']);
+                    $this->db->update('issuance', array('status' => 'issued','issued_date' => $date,'issued_time' => $time,'issued_by' => $user));
+                }
+            }
+                $this->db->where('issuance_id', $issuance_id);
+                $this->db->update('issuancedetails', array('status' => 'issued','date_issued' => $date,'issued_by' => $requested_by));
+            return true;
+        }
+        public function getSingleIssuance($id){
+            $this->db->where('issuance_id', $id);
+            $query = $this->db->get('issuance');
+            return $query->row_array();            
+        }
+        public function getAllIssuanceDetailsPrint($id){            
+            $query = $this->db->query('SELECT *,SUM(quantity) as quantity FROM issuance WHERE issuance_id = "'.$id.'" GROUP BY code,rrno');
+            return $query->result_array();            
+        }
     }
 ?>
