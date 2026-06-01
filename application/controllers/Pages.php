@@ -553,5 +553,44 @@ date_default_timezone_set('Asia/Manila');
             $data['pono'] = $id;
             $this->load->view('pages/'.$page,$data);            
         }
+
+        public function reports(){
+            $page = "reports";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Reports";
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+        public function print_monthly_report(){
+            $page = "print_monthly_report";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $startdate=$this->input->post('startdate');
+            $enddate=$this->input->post('enddate');
+            $type=$this->input->post('type');
+            $project_id=$this->input->post('project_id');
+            $data['project_id'] = $project_id;
+            $data['startdate'] = $startdate;
+            $data['enddate'] = $enddate;
+            $data['type'] = $type;
+            if($project_id=="all"){
+                $data['projectname'] = "All Projects";
+                $data['width'] = "1200";
+            }else{
+                $project = $this->Procurement_model->getSingleProject($project_id);
+                $data['projectname'] = $project['projectname'];
+                $data['width'] = "800";
+            }
+            $this->load->view('pages/'.$page,$data);
+        }
 }
 ?>

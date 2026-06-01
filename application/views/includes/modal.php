@@ -427,3 +427,53 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="generateMonthlyReport" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Monthly Stock Report</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('print_monthly_report');?>" method="post" target="_blank">
+                    <input type="hidden" name="project_id" id="other_request_project_id">
+                    <input type="hidden" name="id" id="other_request_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" name="startdate" required>
+                    </div>                                    
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">End Date</label>
+                        <input type="date" class="form-control" name="enddate" required>
+                    </div>     
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Type</label>
+                        <select name="type" class="form-select" aria-label="Default select example" required>
+                            <option value="">Select Type</option>
+                            <option value="requested">Requested</option>
+                            <option value="received">Received</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Project</label>
+                        <select name="project_id" class="form-select" aria-label="Default select example" required>
+                            <option value="">Select Project</option>
+                            <option value="all">Consolidated</option>
+                            <?php
+                            $projects = $this->Procurement_model->getAllProjects();
+                            foreach ($projects as $project) {
+                                echo "<option value='$project[id]'>$project[projectname]</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>                                                        
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Generate Report</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

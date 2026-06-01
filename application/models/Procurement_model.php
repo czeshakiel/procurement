@@ -463,6 +463,8 @@
                         'requested_by' => $user,
                         'status' => 'finalized'
                     ));
+                    $this->db->where('id', $request['id']);
+                    $this->db->update('purchaseorder', array('quantity' => $quantity[$index]));
                     $count++;
                 }
                 $data = array(
@@ -734,6 +736,10 @@
         }
         public function getAllIssuanceDetailsPrint($id){            
             $query = $this->db->query('SELECT *,SUM(quantity) as quantity FROM issuance WHERE issuance_id = "'.$id.'" GROUP BY code,rrno');
+            return $query->result_array();            
+        }
+        public function getAllRequestsByProject($id,$startdate,$enddate){
+            $query = $this->db->query("SELECT pd.*,po.* FROM purchaseorder po INNER JOIN podetails pd ON pd.pono = po.pono WHERE pd.project_id = '$id' AND pd.date_requested BETWEEN '$startdate' AND '$enddate' AND pd.`status` != 'cancelled' GROUP BY po.code ORDER BY po.date_requested ASC");
             return $query->result_array();            
         }
     }
