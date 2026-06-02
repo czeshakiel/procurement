@@ -435,6 +435,8 @@
             // $description = $this->input->post('description');
             // $unitcost = $this->input->post('unitcost');
             $quantity = $this->input->post('quantity');
+            $invno = $this->input->post('invno');
+            $recdate = $this->input->post('recdate');
             $this->db->where('pono', $pono);
             $this->db->where('status', 'finalized');
             $this->db->order_by('id', 'ASC');
@@ -476,20 +478,20 @@
                 'unitcost' => $request['unitcost'],
                 'quantity' => $quantity[$index],                
                 'project_id' => $project_id,                
-                'datearray' => $date,
+                'datearray' => $recdate,
                 'timearray' => $time
                 );                
                 if($quantity[$index] > 0){
                     $this->db->insert('stocktable', $data);
                     $this->db->where('id', $request['id']);
-                    $this->db->update('purchaseorder', array('rrno' => $rrno,'date_received' => $date,'time_received' => $time,'received_by' => $user,'status' => 'received'));
+                    $this->db->update('purchaseorder', array('rrno' => $rrno,'date_received' => $recdate,'time_received' => $time,'received_by' => $user,'status' => 'received','invno' => $invno));
                 }else{
                     $count++;
                 }
             }
             if($count == 0){                                
                 $this->db->where('pono', $pono);
-                $this->db->update('podetails', array('status' => 'received','date_received' => $date,'received_by' => $user));                
+                $this->db->update('podetails', array('status' => 'received','date_received' => $recdate,'received_by' => $user));                
             }
         }
         public function getReceivingReport($id){
@@ -519,12 +521,14 @@
             $id = $this->input->post('id');
             $project_id = $this->input->post('project_id');
             $description = $this->input->post('description');
+            $amount = $this->input->post('amount');
             $date=$this->input->post('datearray');
             $time=date('H:i:s');
             if($id==""){
                 $data = array(
                     'project_id' => $project_id,
                     'description' => $description,
+                    'amount' => $amount,
                     'datearray' => $date,
                     'timearray' => $time,
                     'status' => 'pending'
@@ -739,7 +743,19 @@
             return $query->result_array();            
         }
         public function getAllRequestsByProject($id,$startdate,$enddate){
-            $query = $this->db->query("SELECT pd.*,po.* FROM purchaseorder po INNER JOIN podetails pd ON pd.pono = po.pono WHERE pd.project_id = '$id' AND pd.date_requested BETWEEN '$startdate' AND '$enddate' AND pd.`status` != 'cancelled' GROUP BY po.code ORDER BY po.date_requested ASC");
+            $query = $this->db->query("SELECT pd.*,po.*,SUM(po.quantity) as quantity FROM purchaseorder po INNER JOIN podetails pd ON pd.pono = po.pono WHERE pd.project_id = '$id' AND pd.date_requested BETWEEN '$startdate' AND '$enddate' AND pd.`status` != 'cancelled' GROUP BY po.code ORDER BY po.date_requested ASC");
+            return $query->result_array();            
+        }
+        public function getAllReceivedByProject($id,$startdate,$enddate){
+            $query = $this->db->query("SELECT pd.*,po.*,SUM(po.quantity) as quantity FROM purchaseorder po INNER JOIN podetails pd ON pd.pono = po.pono WHERE pd.status = 'received' AND pd.project_id = '$id' AND pd.date_received BETWEEN '$startdate' AND '$enddate' GROUP BY po.code ORDER BY po.date_requested ASC");
+            return $query->result_array();            
+        }
+        public function getAllOtherRequestsByProject($id,$status,$startdate,$enddate){            
+            $query = $this->db->query("SELECT * FROM other_request WHERE project_id = '$id' AND status = '$status' AND datearray BETWEEN '$startdate' AND '$enddate' ORDER BY datearray ASC");
+            return $query->result_array();            
+        }
+        public function getAllOtherReceivedByProject($id,$status,$startdate,$enddate){            
+            $query = $this->db->query("SELECT * FROM other_request WHERE project_id = '$id' AND status = '$status' AND updated_date BETWEEN '$startdate' AND '$enddate' ORDER BY datearray ASC");
             return $query->result_array();            
         }
     }

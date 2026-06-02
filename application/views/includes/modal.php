@@ -389,7 +389,11 @@
                     <div class="mb-3">
                         <label for="sub" class="form-label">Description</label>
                         <input type="text" class="form-control" name="description" id="other_request_description" required>
-                    </div>                                                        
+                    </div>
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Amount</label>
+                        <input type="number" class="form-control" name="amount" id="other_request_amount" required>
+                    </div>
                 </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

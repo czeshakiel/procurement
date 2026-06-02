@@ -34,10 +34,20 @@
                             <div class="col-lg-12">
                                 <div class="card mb-3">
                                     <div class="card-header py-3 d-flex justify-content-between bg-transparent border-bottom-0">
-                                        <h6 class="mb-0 fw-bold ">Requested Items</h6>
+                                        <h6 class="mb-0 fw-bold ">Requested Items</h6>                                           
                                         <div class="d-flex py-2 project-tab flex-wrap w-sm-100">
                                             <button type="submit" value="Post" class="btn btn-dark w-sm-100"><i class="icofont-send-mail me-2 fs-6"></i>Post</button>                                             
                                             <a href="#" onclick="window.close();" class="btn btn-danger w-sm-100  text-white"><i class="icofont-exit me-2 fs-6"></i>Close</a>
+                                        </div>                                        
+                                    </div>
+                                    <div class="card-header d-flex justify-content-start bg-transparent border-bottom-0">
+                                        <div class="form-group d-flex align-items-center flex-wrap">                                     
+                                            <label for="invno" class="form-label me-2">Invoice Number:</label>                                            
+                                            <input type="text" name="invno" class="form-control form-control-sm me-2" placeholder="Invoice Number" required>
+                                        </div>
+                                        <div class="form-group d-flex align-items-center flex-wrap">
+                                            <label for="recdate" class="form-label me-2">Receiving Date:</label>
+                                            <input type="date" name="recdate" class="form-control form-control-sm me-2" placeholder="Receiving Date" required>                                        
                                         </div>
                                     </div>
                                     <div class="card-body">

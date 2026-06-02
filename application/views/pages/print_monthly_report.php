@@ -11,6 +11,8 @@
                 <th colspan="4" align="left">Report Type: <?php
                 if($type=="requested"){
                     echo "Requisition Report";
+                }else{
+                    echo "Receiving Report";
                 }
                 ?>
                 </th>
@@ -37,7 +39,96 @@
                     foreach($projects as $project){
                     $project_id = $project['id'];
                     echo "<td align='center'>";
-                    $query = $this->Procurement_model->getAllRequestsByProject($project_id,$startdate,$enddate);
+                    if($type=="requested"){
+                        $query = $this->Procurement_model->getAllRequestsByProject($project_id,$startdate,$enddate);
+                    }else{
+                        $query = $this->Procurement_model->getAllReceivedByProject($project_id,$startdate,$enddate);
+                    }
+                        if(count($query) > 0){
+                    ?>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <th align="center" style="border-right: 1px solid #000; border-bottom: 1px solid #000;" width="50%">Materials</th>
+                            <th align="center" style="border-bottom: 1px solid #000;" width="50%">Labor</th>
+                        </tr>
+                        <tr >
+                            <th style="border-right: 1px solid #000; border-bottom: 1px solid #000; vertical-align: top;" width="50%" align="center">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px;">
+                                    <tr>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="30%">Description</th>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="10%">Qty</th>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="30%">Price</th>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="30%">Total</th>
+                                    </tr>                                    
+                                    <?php
+                                            $totalamount = 0;
+                                            foreach($query as $request){
+                                                $request_id = $request['pono'];
+                                                $date_requested = date('m/d/Y', strtotime($request['date_requested']));
+                                                $requested_by = $request['requested_by'];
+                                                echo "<tr>";
+                                                    echo "<td>".$request['description']."</td>";
+                                                    echo "<td align='center'>".$request['quantity']."</td>";
+                                                    echo "<td align='right'>".number_format($request['unitcost'], 2)."</td>";
+                                                    echo "<td align='right'>".number_format($request['unitcost'] * $request['quantity'], 2)."</td>";
+                                                echo "</tr>";
+                                                $totalamount += $request['unitcost'] * $request['quantity'];
+                                            }
+                                        ?>                                                                                            
+                                    <tr>
+                                        <th align="right" style="border-top: 1px solid #000;" colspan="3">Total:</th>
+                                        <th align="right" style="border-top: 1px solid #000;" width="25%"><?=number_format($totalamount, 2);?></th>
+                                    </tr>
+                                </table>
+                            </th>
+                            <th style="border-right: 0px solid #000; border-bottom: 1px solid #000; vertical-align: top;" width="50%" align="center">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size: 12px;">
+                                    <tr>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="70%">Date Requested</th>
+                                        <th align="center" style="border-bottom: 1px solid #000;" width="30%">Amount</th>
+                                    </tr>                                    
+                                    <?php
+                                            $totalamountlabor = 0;
+                                            if($type=="requested"){
+                                                $query = $this->Procurement_model->getAllOtherRequestsByProject($project_id,"issued",$startdate,$enddate);
+                                            }else{
+                                                $query = $this->Procurement_model->getAllOtherReceivedByProject($project_id,"issued",$startdate,$enddate);
+                                            }
+                                            foreach($query as $request){                                          
+                                                $description = $request['description'];
+                                                $amount = $request['amount'];      
+                                                $date_requested = date('m/d/Y', strtotime($request['datearray']));                                                
+                                                echo "<tr>";
+                                                    echo "<td>".$date_requested."</td>";                                                    
+                                                    echo "<td align='right'>".number_format($amount, 2)."</td>";                                                    
+                                                echo "</tr>";
+                                                $totalamountlabor += $amount;
+                                            }
+                                        ?>                                                                                            
+                                    <tr>
+                                        <th align="right" style="border-top: 1px solid #000;">Total:</th>
+                                        <th align="right" style="border-top: 1px solid #000;" width="25%"><?=number_format($totalamountlabor, 2);?></th>
+                                    </tr>
+                                </table>
+                            </th>
+                        </tr> 
+                        <tr>
+                            <td colspan="2" align="center"><b><i>Total Amount: <?=number_format($totalamountlabor+$totalamount, 2);?></i></b></td>
+                        </tr>                      
+                    <?php
+                    }                                        
+                }
+                echo "</td>";
+                echo "</tr>";
+            }else{
+               
+                echo "<tr>";
+                    echo "<td align='center'>";
+                    if($type=="requested"){
+                        $query = $this->Procurement_model->getAllRequestsByProject($project_id,$startdate,$enddate);
+                    }else{
+                        $query = $this->Procurement_model->getAllReceivedByProject($project_id,$startdate,$enddate);
+                    }
                         if(count($query) > 0){
                     ?>
                     <table width="100%" border="0" cellspacing="0" cellpadding="2">
@@ -79,10 +170,8 @@
                     <?php
                     }
                     echo "</td>";
-                }
+                
                 echo "</tr>";
-            }else{
-
             }
             ?>
         </table>

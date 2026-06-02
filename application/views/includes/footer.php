@@ -117,6 +117,7 @@
         document.getElementById('other_request_description').value = id[1];
         document.getElementById('other_request_date').value = id[2];
         document.getElementById('other_request_id').value = id[3];
+        document.getElementById('other_request_amount').value = id[4];
     });
      $('.createIssuance').on('click', function(){
         var id=$(this).data('id');
