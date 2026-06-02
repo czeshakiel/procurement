@@ -48,6 +48,7 @@ DROP TABLE IF EXISTS `issuance`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `issuance` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `issuance_id` varchar(100) DEFAULT NULL,
   `rrno` varchar(100) DEFAULT NULL,
   `code` varchar(100) DEFAULT NULL,
   `description` text,
@@ -56,8 +57,12 @@ CREATE TABLE `issuance` (
   `timearray` time DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
   `project_id` varchar(45) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'pending',
+  `issued_date` date DEFAULT NULL,
+  `issued_time` time DEFAULT NULL,
+  `issued_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +71,70 @@ CREATE TABLE `issuance` (
 
 LOCK TABLES `issuance` WRITE;
 /*!40000 ALTER TABLE `issuance` DISABLE KEYS */;
+INSERT INTO `issuance` VALUES (25,'IS-20260602092543','RRNO-20260602-0001','20260522134146','Round Bars 6mm',10,'2026-06-02','09:25:52','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(26,'IS-20260602092543','RRNO-20260602-0001','20260522134427','Plywood 6mm',10,'2026-06-02','09:25:57','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(27,'IS-20260602092543','RRNO-20260602-0001','20260522134508','Plywood 12mm',10,'2026-06-02','09:26:05','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy');
 /*!40000 ALTER TABLE `issuance` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `issuancedetails`
+--
+
+DROP TABLE IF EXISTS `issuancedetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `issuancedetails` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_id` int DEFAULT NULL,
+  `issuance_id` varchar(100) DEFAULT NULL,
+  `date_requested` date DEFAULT NULL,
+  `requested_by` varchar(100) DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'pending',
+  `date_issued` date DEFAULT NULL,
+  `issued_by` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `issuancedetails`
+--
+
+LOCK TABLES `issuancedetails` WRITE;
+/*!40000 ALTER TABLE `issuancedetails` DISABLE KEYS */;
+INSERT INTO `issuancedetails` VALUES (2,1,'IS-20260602092543','2026-03-02','Inhouse Contractor','issued','2026-06-02',NULL);
+/*!40000 ALTER TABLE `issuancedetails` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `other_request`
+--
+
+DROP TABLE IF EXISTS `other_request`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `other_request` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `project_id` int DEFAULT NULL,
+  `description` text,
+  `amount` double DEFAULT NULL,
+  `datearray` date DEFAULT NULL,
+  `timearray` time DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'pending',
+  `updated_date` date DEFAULT NULL,
+  `update_time` time DEFAULT NULL,
+  `updated_by` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `other_request`
+--
+
+LOCK TABLES `other_request` WRITE;
+/*!40000 ALTER TABLE `other_request` DISABLE KEYS */;
+INSERT INTO `other_request` VALUES (1,1,'Labor',30000,'2026-01-15','08:49:21','issued','2026-05-29','09:34:28','Eczekiel Aboy'),(2,1,'Labor',20000,'2026-01-14','10:10:24','issued','2026-06-02','10:11:52','Eczekiel Aboy');
+/*!40000 ALTER TABLE `other_request` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -87,7 +155,7 @@ CREATE TABLE `podetails` (
   `date_received` date DEFAULT NULL,
   `received_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +164,7 @@ CREATE TABLE `podetails` (
 
 LOCK TABLES `podetails` WRITE;
 /*!40000 ALTER TABLE `podetails` DISABLE KEYS */;
-INSERT INTO `podetails` VALUES (1,'PR-20260526095817','2026-05-26','Eczekiel Aboy',1,'charge','pending',NULL,NULL);
+INSERT INTO `podetails` VALUES (2,'PR-20260528100815','2026-01-15','Eczekiel Aboy',1,'charge','received','2026-06-02','Eczekiel Aboy'),(3,'PR-20260528102329','2026-03-11','Eczekiel Aboy',1,'charge','cancelled','2026-05-28','Eczekiel Aboy'),(5,'PR-20260529093903','2026-02-18','Eczekiel Aboy',1,'charge','cancelled','2026-05-29','Eczekiel Aboy'),(6,'PR-20260602101531','2026-01-28','Eczekiel Aboy',1,'cash','received','2026-01-30','Eczekiel Aboy');
 /*!40000 ALTER TABLE `podetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -141,6 +209,7 @@ CREATE TABLE `purchaseorder` (
   `id` int NOT NULL AUTO_INCREMENT,
   `rrno` varchar(100) DEFAULT NULL,
   `pono` varchar(100) DEFAULT NULL,
+  `invno` varchar(45) DEFAULT NULL,
   `suppliercode` varchar(100) DEFAULT NULL,
   `suppliername` varchar(100) DEFAULT NULL,
   `code` varchar(100) DEFAULT NULL,
@@ -156,7 +225,7 @@ CREATE TABLE `purchaseorder` (
   `time_received` time DEFAULT NULL,
   `received_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +234,7 @@ CREATE TABLE `purchaseorder` (
 
 LOCK TABLES `purchaseorder` WRITE;
 /*!40000 ALTER TABLE `purchaseorder` DISABLE KEYS */;
-INSERT INTO `purchaseorder` VALUES (2,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',15,53,'1','finalized','2026-05-27','09:34:28','Eczekiel Aboy',NULL,NULL,NULL),(3,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134427','Plywood 6mm',50,413,'1','finalized','2026-05-27','09:35:00','Eczekiel Aboy',NULL,NULL,NULL),(4,NULL,'PR-20260526095817','20260522112333','Citi Hardware Kidapawan','20260522134508','Plywood 12mm',50,430,'1','finalized','2026-05-27','09:35:16','Eczekiel Aboy',NULL,NULL,NULL);
+INSERT INTO `purchaseorder` VALUES (15,'RRNO-20260602-0001','PR-20260528100815',NULL,'20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',30,45,'1','received','2026-06-02','09:22:18','Eczekiel Aboy','2026-06-02','09:24:01','Eczekiel Aboy'),(16,'RRNO-20260602-0001','PR-20260528100815',NULL,'20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',20,145,'1','received','2026-06-02','09:22:34','Eczekiel Aboy','2026-06-02','09:24:01','Eczekiel Aboy'),(17,'RRNO-20260602-0001','PR-20260528100815',NULL,'20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',30,135,'1','received','2026-06-02','09:22:47','Eczekiel Aboy','2026-06-02','09:24:01','Eczekiel Aboy'),(18,'RRNO-20260602-0002','PR-20260528100815',NULL,'20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',10,45,'1','received','2026-06-02','09:24:01','Eczekiel Aboy','2026-06-02','09:24:35','Eczekiel Aboy'),(19,'RRNO-20260602-0002','PR-20260528100815',NULL,'20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',20,145,'1','received','2026-06-02','09:24:01','Eczekiel Aboy','2026-06-02','09:24:35','Eczekiel Aboy'),(20,'RRNO-20260602-0002','PR-20260528100815',NULL,'20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',10,135,'1','received','2026-06-02','09:24:01','Eczekiel Aboy','2026-06-02','09:24:35','Eczekiel Aboy'),(21,'RRNO-20260602-0003','PR-20260528100815',NULL,'20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',10,45,'1','received','2026-06-02','09:24:35','Eczekiel Aboy','2026-06-02','09:24:49','Eczekiel Aboy'),(22,'RRNO-20260602-0004','PR-20260602101531','21341','20260522112333','Citi Hardware Kidapawan','20260522133642','Tiles 20x20 White Pearl',30,64,'1','received','2026-06-02','10:15:47','Eczekiel Aboy','2026-01-30','10:25:53','Eczekiel Aboy');
 /*!40000 ALTER TABLE `purchaseorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -216,7 +285,7 @@ CREATE TABLE `stocktable` (
   `datearray` date DEFAULT NULL,
   `timearray` time DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -225,6 +294,7 @@ CREATE TABLE `stocktable` (
 
 LOCK TABLES `stocktable` WRITE;
 /*!40000 ALTER TABLE `stocktable` DISABLE KEYS */;
+INSERT INTO `stocktable` VALUES (34,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,30,'1','2026-06-02','09:24:01'),(35,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:01'),(36,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,30,'1','2026-06-02','09:24:01'),(37,'RRNO-20260602-0002','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:35'),(38,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:35'),(39,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,10,'1','2026-06-02','09:24:35'),(40,'RRNO-20260602-0003','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:49'),(41,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,-10,'1','2026-06-02','09:26:09'),(42,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,-10,'1','2026-06-02','09:26:09'),(43,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,-10,'1','2026-06-02','09:26:09'),(44,'RRNO-20260602-0004','20260522112333','Citi Hardware Kidapawan','20260522133642','Tiles 20x20 White Pearl',64,30,'1','2026-01-30','10:25:53');
 /*!40000 ALTER TABLE `stocktable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,7 +311,7 @@ CREATE TABLE `suppliers` (
   `suppliername` text,
   `status` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +320,7 @@ CREATE TABLE `suppliers` (
 
 LOCK TABLES `suppliers` WRITE;
 /*!40000 ALTER TABLE `suppliers` DISABLE KEYS */;
-INSERT INTO `suppliers` VALUES (4,'20260522112333','Citi Hardware Kidapawan','Active');
+INSERT INTO `suppliers` VALUES (4,'20260522112333','Citi Hardware Kidapawan','Active'),(5,'20260528103034','2NA Construction Supply','Active');
 /*!40000 ALTER TABLE `suppliers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-27 17:46:44
+-- Dump completed on 2026-06-02 10:34:45
