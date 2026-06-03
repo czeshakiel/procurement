@@ -62,7 +62,7 @@ CREATE TABLE `issuance` (
   `issued_time` time DEFAULT NULL,
   `issued_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,7 +71,7 @@ CREATE TABLE `issuance` (
 
 LOCK TABLES `issuance` WRITE;
 /*!40000 ALTER TABLE `issuance` DISABLE KEYS */;
-INSERT INTO `issuance` VALUES (25,'IS-20260602092543','RRNO-20260602-0001','20260522134146','Round Bars 6mm',10,'2026-06-02','09:25:52','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(26,'IS-20260602092543','RRNO-20260602-0001','20260522134427','Plywood 6mm',10,'2026-06-02','09:25:57','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(27,'IS-20260602092543','RRNO-20260602-0001','20260522134508','Plywood 12mm',10,'2026-06-02','09:26:05','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy');
+INSERT INTO `issuance` VALUES (25,'IS-20260602092543','RRNO-20260602-0001','20260522134146','Round Bars 6mm',10,'2026-06-02','09:25:52','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(26,'IS-20260602092543','RRNO-20260602-0001','20260522134427','Plywood 6mm',10,'2026-06-02','09:25:57','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(27,'IS-20260602092543','RRNO-20260602-0001','20260522134508','Plywood 12mm',10,'2026-06-02','09:26:05','Eczekiel Aboy','1','issued','2026-06-02','09:26:09','Eczekiel Aboy'),(28,'IS-20260603084244','RRNO-20260602-0004','20260522133642','Tiles 20x20 White Pearl',10,'2026-06-03','08:42:52','Eczekiel Aboy','1','issued','2026-01-26','08:54:10','Eczekiel Aboy'),(29,'IS-20260603084244','RRNO-20260602-0001','20260522134508','Plywood 12mm',10,'2026-06-03','08:43:02','Eczekiel Aboy','1','issued','2026-01-26','08:54:10','Eczekiel Aboy');
 /*!40000 ALTER TABLE `issuance` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +92,7 @@ CREATE TABLE `issuancedetails` (
   `date_issued` date DEFAULT NULL,
   `issued_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,7 +101,7 @@ CREATE TABLE `issuancedetails` (
 
 LOCK TABLES `issuancedetails` WRITE;
 /*!40000 ALTER TABLE `issuancedetails` DISABLE KEYS */;
-INSERT INTO `issuancedetails` VALUES (2,1,'IS-20260602092543','2026-03-02','Inhouse Contractor','issued','2026-06-02',NULL);
+INSERT INTO `issuancedetails` VALUES (2,1,'IS-20260602092543','2026-03-02','Inhouse Contractor','issued','2026-06-02',NULL),(3,1,'IS-20260603084244','2026-01-22','Inhouse Contractor','issued','2026-01-26',NULL);
 /*!40000 ALTER TABLE `issuancedetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -124,7 +124,7 @@ CREATE TABLE `other_request` (
   `update_time` time DEFAULT NULL,
   `updated_by` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,7 @@ CREATE TABLE `other_request` (
 
 LOCK TABLES `other_request` WRITE;
 /*!40000 ALTER TABLE `other_request` DISABLE KEYS */;
-INSERT INTO `other_request` VALUES (1,1,'Labor',30000,'2026-01-15','08:49:21','issued','2026-05-29','09:34:28','Eczekiel Aboy'),(2,1,'Labor',20000,'2026-01-14','10:10:24','issued','2026-06-02','10:11:52','Eczekiel Aboy');
+INSERT INTO `other_request` VALUES (1,1,'Labor',30000,'2026-01-15','08:49:21','issued','2026-05-29','09:34:28','Eczekiel Aboy'),(2,1,'Labor',20000,'2026-01-14','10:10:24','issued','2026-06-02','10:11:52','Eczekiel Aboy'),(3,1,'Labor',10000,'2026-01-30','08:20:51','issued','2026-01-30','08:36:38','Eczekiel Aboy');
 /*!40000 ALTER TABLE `other_request` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,7 +285,7 @@ CREATE TABLE `stocktable` (
   `datearray` date DEFAULT NULL,
   `timearray` time DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,7 +294,7 @@ CREATE TABLE `stocktable` (
 
 LOCK TABLES `stocktable` WRITE;
 /*!40000 ALTER TABLE `stocktable` DISABLE KEYS */;
-INSERT INTO `stocktable` VALUES (34,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,30,'1','2026-06-02','09:24:01'),(35,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:01'),(36,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,30,'1','2026-06-02','09:24:01'),(37,'RRNO-20260602-0002','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:35'),(38,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:35'),(39,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,10,'1','2026-06-02','09:24:35'),(40,'RRNO-20260602-0003','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:49'),(41,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,-10,'1','2026-06-02','09:26:09'),(42,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,-10,'1','2026-06-02','09:26:09'),(43,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,-10,'1','2026-06-02','09:26:09'),(44,'RRNO-20260602-0004','20260522112333','Citi Hardware Kidapawan','20260522133642','Tiles 20x20 White Pearl',64,30,'1','2026-01-30','10:25:53');
+INSERT INTO `stocktable` VALUES (34,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,30,'1','2026-06-02','09:24:01'),(35,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:01'),(36,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,30,'1','2026-06-02','09:24:01'),(37,'RRNO-20260602-0002','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:35'),(38,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,20,'1','2026-06-02','09:24:35'),(39,'RRNO-20260602-0002','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,10,'1','2026-06-02','09:24:35'),(40,'RRNO-20260602-0003','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,10,'1','2026-06-02','09:24:49'),(41,'RRNO-20260602-0001','20260522112333','Citi Hardware Kidapawan','20260522134146','Round Bars 6mm',45,-10,'1','2026-06-02','09:26:09'),(42,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134427','Plywood 6mm',145,-10,'1','2026-06-02','09:26:09'),(43,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,-10,'1','2026-06-02','09:26:09'),(44,'RRNO-20260602-0004','20260522112333','Citi Hardware Kidapawan','20260522133642','Tiles 20x20 White Pearl',64,30,'1','2026-01-30','10:25:53'),(45,'RRNO-20260602-0004','20260522112333','Citi Hardware Kidapawan','20260522133642','Tiles 20x20 White Pearl',64,-10,'1','2026-01-26','08:54:10'),(46,'RRNO-20260602-0001','20260528103034','2NA Construction Supply','20260522134508','Plywood 12mm',135,-10,'1','2026-01-26','08:54:10');
 /*!40000 ALTER TABLE `stocktable` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -359,4 +359,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-02 10:34:45
+-- Dump completed on 2026-06-03  9:48:31

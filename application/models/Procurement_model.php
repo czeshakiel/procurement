@@ -496,7 +496,8 @@
         }
         public function getReceivingReport($id){
             $this->db->where('rrno', $id);
-            $query = $this->db->get('stocktable');
+            #where
+            $query = $this->db->get('purchaseorder');
             return $query->result_array();            
         }
 
@@ -557,8 +558,8 @@
                 return false;
             }
         }
-        public function update_other_request($request_id,$status){
-            $date=date('Y-m-d');
+        public function update_other_request($request_id,$status,$datearray){
+            $date=$datearray;
             $time=date('H:i:s');
             $user=$this->session->fullname;
             $this->db->where('id', $request_id);            
@@ -704,7 +705,7 @@
             }
         } 
         public function post_issuance($issuance_id){
-            $date=date('Y-m-d');
+            $date=$this->input->post('datearray');
             $time=date('H:i:s');  
             $user=$this->session->fullname;  
             $qry=$this->db->query("SELECT * FROM issuance WHERE issuance_id = '$issuance_id' AND status = 'pending'");
@@ -730,7 +731,7 @@
                 }
             }
                 $this->db->where('issuance_id', $issuance_id);
-                $this->db->update('issuancedetails', array('status' => 'issued','date_issued' => $date,'issued_by' => $requested_by));
+                $this->db->update('issuancedetails', array('status' => 'issued','date_issued' => $date,'issued_by' => $user));
             return true;
         }
         public function getSingleIssuance($id){
@@ -757,6 +758,18 @@
         public function getAllOtherReceivedByProject($id,$status,$startdate,$enddate){            
             $query = $this->db->query("SELECT * FROM other_request WHERE project_id = '$id' AND status = '$status' AND updated_date BETWEEN '$startdate' AND '$enddate' ORDER BY datearray ASC");
             return $query->result_array();            
+        }
+        public function getAllIssuanceByDate($project_id,$startdate,$enddate){            
+            $query = $this->db->query("SELECT * FROM issuancedetails WHERE project_id = '$project_id' AND date_issued BETWEEN '$startdate' AND '$enddate' ORDER BY date_issued ASC");
+            return $query->result_array();            
+        }
+        public function getAllPurchaseRequest(){
+            $query = $this->db->query("SELECT pd.*,po.rrno FROM podetails pd INNER JOIN purchaseorder po ON pd.pono = po.pono WHERE pd.status = 'received' GROUP BY po.rrno,po.pono ORDER BY pd.date_received DESC");
+            return $query->result_array();
+        }
+        public function getAllPurchaseRequestByProject($id){
+            $query = $this->db->query("SELECT pd.*,po.rrno FROM podetails pd INNER JOIN purchaseorder po ON pd.pono = po.pono WHERE pd.project_id = '$id' AND pd.status = 'received' GROUP BY po.rrno,po.pono ORDER BY pd.date_received DESC");
+            return $query->result_array();
         }
     }
 ?>

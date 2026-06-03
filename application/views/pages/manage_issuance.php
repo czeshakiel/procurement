@@ -116,9 +116,9 @@
                                         <h6 class="mb-0 fw-bold ">Requested Items</h6>
                                         <div class="d-flex py-2 project-tab flex-wrap w-sm-100">
                                             <a href="<?=base_url('print_issuance/'.$pono)?>" class="btn btn-dark w-sm-100" target="_blank" <?=$print?>><i class="icofont-print me-2 fs-6"></i>Print Request</a>
-                                            <a href="<?=base_url('post_issuance/'.$pono."/".$project_id)?>" class="btn btn-warning w-sm-100" onclick="return confirm('Are you sure you want to post this issuance? Once posted, it cannot be reverted! Please check all items before posting.'); return false;" <?=$save?>><i class="icofont-download me-2 fs-6"></i>Post Issuance</a>
+                                            <a href="#" class="btn btn-warning w-sm-100 postIssuance" data-bs-toggle="modal" data-bs-target="#postIssuance" data-id="<?=$pono?>_<?=$project_id?>" <?=$save?>><i class="icofont-download me-2 fs-6"></i>Post Issuance</a>
                                         </div>
-                                    </div>
+                                    </div>                                    
                                     <div class="card-body">
                                         <table id="myProjectTable" class="table table-hover align-middle mb-0" style="width:100%">
                                             <thead>

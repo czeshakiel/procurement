@@ -438,8 +438,12 @@ date_default_timezone_set('Asia/Manila');
             redirect(base_url('other_request/'.$this->input->post('project_id')));
         }
 
-        public function update_other_request($request_id, $project_id,$status){
-            $delete = $this->Procurement_model->update_other_request($request_id,$status);
+        public function update_other_request(){
+            $request_id = $this->input->post('id');
+            $project_id = $this->input->post('project_id');
+            $status = $this->input->post('status');
+            $datearray = $this->input->post('datearray');
+            $delete = $this->Procurement_model->update_other_request($request_id,$status,$datearray);
             if($delete){
                 $this->session->set_flashdata('success', 'Other request updated successfully.');
             } else {
@@ -531,7 +535,9 @@ date_default_timezone_set('Asia/Manila');
             redirect(base_url('manage_issuance/'.$pono.'/'.$project_id));
         }
 
-        public function post_issuance($pono, $project_id){
+        public function post_issuance(){
+            $pono = $this->input->post('pono');
+            $project_id = $this->input->post('project_id');            
             $delete = $this->Procurement_model->post_issuance($pono);
             if($delete){
                 $this->session->set_flashdata('success', 'Issuance posted successfully.');
@@ -591,6 +597,53 @@ date_default_timezone_set('Asia/Manila');
                 $data['width'] = "800";
             }
             $this->load->view('pages/'.$page,$data);
+        }
+        public function print_monthly_issuance_report(){
+            $page = "print_monthly_issuance_report";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $startdate=$this->input->post('startdate');
+            $enddate=$this->input->post('enddate');            
+            $data['startdate'] = $startdate;
+            $data['enddate'] = $enddate;  
+            $project_id=$this->input->post('project_id');
+            $data['project_id'] = $project_id;  
+            if($project_id=="all"){
+                $data['projectname'] = "All Projects";
+                $data['width'] = "1200";
+            }else{
+                $project = $this->Procurement_model->getSingleProject($project_id);
+                $data['projectname'] = $project['projectname'];
+                $data['width'] = "800";
+            }        
+            $this->load->view('pages/'.$page,$data);
+        }
+
+        public function view_reports($id){
+            $page = "view_reports";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}            
+            if($id=="all"){
+                $projectname="All Projects";
+                $data['requests'] = $this->Procurement_model->getAllPurchaseRequest();  
+            }else{
+                $project = $this->Procurement_model->getSingleProject($id);
+                $projectname = $project['projectname'];
+                $data['requests'] = $this->Procurement_model->getAllPurchaseRequestByProject($id);  
+            }            
+
+            $data['title'] = "<small><a href='".base_url('reports')."'>Reports</a></small> >> $projectname";
+            $data['id'] = $id;                          
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
         }
 }
 ?>

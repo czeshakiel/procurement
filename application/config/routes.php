@@ -50,17 +50,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 #
+$route['view_reports/(:any)'] = 'pages/view_reports/$1';
+$route['print_monthly_issuance_report'] = 'pages/print_monthly_issuance_report';
 $route['print_monthly_report'] = 'pages/print_monthly_report';
 $route['reports'] = 'pages/reports';
 $route['print_issuance/(:any)'] = 'pages/print_issuance/$1';
-$route['post_issuance/(:any)/(:any)'] = 'pages/post_issuance/$1/$2';
+$route['post_issuance'] = 'pages/post_issuance';
 $route['delete_request_item_issuance/(:any)/(:any)/(:any)'] = 'pages/delete_request_item_issuance/$1/$2/$3';
 $route['add_request_item_issuance'] = 'pages/add_request_item_issuance';
 $route['search_item_issuance'] = 'pages/search_item_issuance';
 $route['manage_issuance/(:any)/(:any)'] = 'pages/manage_issuance/$1/$2';
 $route['create_issuance'] = 'pages/create_issuance';
 $route['issuance/(:any)'] = 'pages/issuance/$1';
-$route['update_other_request/(:any)/(:any)/(:any)'] = 'pages/update_other_request/$1/$2/$3';
+$route['update_other_request'] = 'pages/update_other_request';
 $route['create_other_request'] = 'pages/create_other_request';
 $route['other_request/(:any)'] = 'pages/other_request/$1';
 $route['rr_print/(:any)'] = 'pages/rr_print/$1';

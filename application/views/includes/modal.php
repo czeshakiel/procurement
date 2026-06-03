@@ -439,9 +439,7 @@
                 <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Monthly Stock Report</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="<?=base_url('print_monthly_report');?>" method="post" target="_blank">
-                    <input type="hidden" name="project_id" id="other_request_project_id">
-                    <input type="hidden" name="id" id="other_request_id">
+                <form action="<?=base_url('print_monthly_report');?>" method="post" target="_blank">                   
                 <div class="modal-body">
                     <div class="mb-3">
                         <label for="sub" class="form-label">Start Date</label>
@@ -476,6 +474,123 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="submit" class="btn btn-success">Generate Report</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="cancelOtherRequest" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Cancel Request?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('update_other_request');?>" method="post">
+                    <input type="hidden" name="status" value="cancelled">
+                    <input type="hidden" name="project_id" id="cancel_other_request_project_id">
+                    <input type="hidden" name="id" id="cancel_other_request_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Cancelled</label>
+                        <input type="date" class="form-control" name="datearray" required>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="issueOtherRequest" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Issue Request?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('update_other_request');?>" method="post">
+                    <input type="hidden" name="status" value="issued">
+                    <input type="hidden" name="project_id" id="issue_other_request_project_id">
+                    <input type="hidden" name="id" id="issue_other_request_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Issued</label>
+                        <input type="date" class="form-control" name="datearray" required>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="generateMonthlyIssuanceReport" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Monthly Issuance Report</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('print_monthly_issuance_report');?>" method="post" target="_blank">                   
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Start Date</label>
+                        <input type="date" class="form-control" name="startdate" required>
+                    </div>                                    
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">End Date</label>
+                        <input type="date" class="form-control" name="enddate" required>
+                    </div>     
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Project</label>
+                        <select name="project_id" class="form-select" aria-label="Default select example" required>
+                            <option value="">Select Project</option>
+                            <option value="all">Consolidated</option>
+                            <?php
+                            $projects = $this->Procurement_model->getAllProjects();
+                            foreach ($projects as $project) {
+                                echo "<option value='$project[id]'>$project[projectname]</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>                                                                             
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Generate Report</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="postIssuance" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Post Issuance?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('post_issuance');?>" method="post">                    
+                    <input type="hidden" name="project_id" id="post_issuance_project_id">
+                    <input type="hidden" name="pono" id="post_issuance_id">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Date Issued</label>
+                        <input type="date" class="form-control" name="datearray" required>
+                    </div>
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
             </div>
             </form>
         </div>

@@ -123,6 +123,24 @@
         var id=$(this).data('id');
         document.getElementById('issuance_project_id').value = id;        
     });
+    $('.cancelOtherRequest').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('cancel_other_request_project_id').value = id[0];
+        document.getElementById('cancel_other_request_id').value = id[1];        
+    });
+    $('.issueOtherRequest').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('issue_other_request_project_id').value = id[0];
+        document.getElementById('issue_other_request_id').value = id[1];        
+    });
+    $('.postIssuance').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('post_issuance_id').value = id[0];
+        document.getElementById('post_issuance_project_id').value = id[1];        
+    });
 </script>
 
 </body>

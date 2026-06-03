@@ -31,9 +31,30 @@
                                                 <h6 class="fw-bold mb-0 small-14">Issuance Report</h6>
                                             </div>
                                         </div>
-                                        <button type="button" class="btn light-warning-bg text-end">Generate</button>
+                                        <a href="#" class="btn light-warning-bg text-end" data-bs-toggle="modal" data-bs-target="#generateMonthlyIssuanceReport">Generate</a>
                                     </div>
-                                    
+                                    <div class="py-2 d-flex align-items-center border-bottom">
+                                        <div class="d-flex ms-3 align-items-center flex-fill">
+                                            <span class="avatar lg light-info-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-send-mail fs-5"></i></span>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Purchase Order/Requisition Report</h6>
+                                            </div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
+                                                Select Project
+                                            </a>
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <li><a class="dropdown-item" href="<?=base_url('view_reports/all');?>">All Projects</a></li>
+                                                <?php
+                                                    $projects = $this->Procurement_model->getAllProjects();
+                                                    foreach ($projects as $project) {
+                                                        echo '<li><a class="dropdown-item" href="' . base_url("view_reports/$project[id]") . '">' . $project['projectname'] . '</a></li>';
+                                                    }
+                                                    ?>                                                
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
