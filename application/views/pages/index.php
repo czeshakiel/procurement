@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="<?=base_url('design/assets/css/my-task.style.min.css'); ?>">
 </head>
 
-<body>
+<body style="background: url(<?=base_url('design/projectmonitoring.png');?>) no-repeat; background-size: cover;">
 
-<div id="mytask-layout" class="theme-indigo">
+<div id="mytask-layout" class="theme-indigo" style="opacity: 0.9;">
 
     <!-- main body area -->
     <div class="main p-2 py-3 p-xl-5 ">
