@@ -235,7 +235,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Purchase Request";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> Purchase Request";
             $data['id'] = $id;  
             $data['requests'] = $this->Procurement_model->getAllRequests($id);  
             $this->load->view('includes/header');            
@@ -255,7 +262,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($project_id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$project_id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$project_id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
             $data['pono'] = $id;  
             $data['project_id'] = $project_id;
             $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);
@@ -278,7 +292,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($project_id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$project_id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$project_id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> <small><a href='".base_url('purchase_request/'.$project_id)."'>Purchase Request</a></small> >> Manage Request";
             $data['pono'] = $id;  
             $data['project_id'] = $project_id;
             $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);  
@@ -359,7 +380,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Receiving";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> Receiving";
             $data['id'] = $id;  
             $data['requests'] = $this->Procurement_model->getAllRequests($id);  
             $this->load->view('includes/header');            
@@ -376,7 +404,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($project_id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$project_id)."'>".$project['projectname']."</a></small> >> <small><a href='".base_url('receiving/'.$project_id)."'>Receiving</a></small> >> Manage Receiving";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$project_id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$project_id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> <small><a href='".base_url('receiving/'.$project_id)."'>Receiving</a></small> >> Manage Receiving";
             $data['pono'] = $id;  
             $data['project_id'] = $project_id;
             $data['requests'] = $this->Procurement_model->getAllReceivingDetails($id);
@@ -416,7 +451,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Other Requests";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> Other Requests";
             $data['id'] = $id;  
             $data['requests'] = $this->Procurement_model->getAllOtherRequests($id,'pending');  
             $data['issuedrequests'] = $this->Procurement_model->getAllOtherRequests($id,'issued');
@@ -459,7 +501,14 @@ date_default_timezone_set('Asia/Manila');
             }
             if(!$this->session->user_login){redirect(base_url());}            
             $project = $this->Procurement_model->getSingleProject($id);
-            $data['title'] = "<small><a href='".base_url('view_project/'.$id)."'>".$project['projectname']."</a></small> >> Issuance";
+            if($project){
+                $pname=$project['projectname'];
+                $url="view_project/".$id;
+            }else{
+                $pname="Preventive/Corrective Maintenance";
+                $url="pcm/".$id;
+            }
+            $data['title'] = "<small><a href='".base_url($url)."'>".$pname."</a></small> >> Issuance";
             $data['id'] = $id;  
             $data['requests'] = $this->Procurement_model->getAllIssuance($id,'pending');  
             $data['issuedrequests'] = $this->Procurement_model->getAllIssuance($id,'issued');
@@ -593,7 +642,12 @@ date_default_timezone_set('Asia/Manila');
                 $data['width'] = "1200";
             }else{
                 $project = $this->Procurement_model->getSingleProject($project_id);
-                $data['projectname'] = $project['projectname'];
+                if($project){
+                    $pname=$project['projectname'];
+                }else{
+                    $pname="Preventive/Corrective Maintenance";
+                }
+                $data['projectname'] = $pname;
                 $data['width'] = "800";
             }
             $this->load->view('pages/'.$page,$data);
@@ -615,7 +669,12 @@ date_default_timezone_set('Asia/Manila');
                 $data['width'] = "1200";
             }else{
                 $project = $this->Procurement_model->getSingleProject($project_id);
-                $data['projectname'] = $project['projectname'];
+                if($project){
+                    $pname=$project['projectname'];
+                }else{
+                    $pname="Preventive/Corrective Maintenance";
+                }
+                $data['projectname'] = $pname;
                 $data['width'] = "800";
             }        
             $this->load->view('pages/'.$page,$data);
@@ -632,12 +691,37 @@ date_default_timezone_set('Asia/Manila');
                 $data['requests'] = $this->Procurement_model->getAllPurchaseRequest();  
             }else{
                 $project = $this->Procurement_model->getSingleProject($id);
-                $projectname = $project['projectname'];
+                if($project){
+                    $projectname = $project['projectname'];
+                }else{
+                    $projectname = "Preventive/Corrective Maintenance";
+                }   
                 $data['requests'] = $this->Procurement_model->getAllPurchaseRequestByProject($id);  
             }            
 
             $data['title'] = "<small><a href='".base_url('reports')."'>Reports</a></small> >> $projectname";
             $data['id'] = $id;                          
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+
+        public function pcm($id){
+            $page = "pcm";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Preventive/Corrective Maintenance";
+            $data['pending_request'] = $this->Procurement_model->getAllRequestByStatus('pending', $id); 
+            $data['pending_other_request'] = $this->Procurement_model->getAllOtherRequests($id, 'pending'); 
+            $data['issued_other_request'] = $this->Procurement_model->getAllOtherRequests($id, 'issued');
+            $data['pending_issuance'] = $this->Procurement_model->getAllIssuance($id,'pending');  
+            //$data['issued_issuance'] = $this->Procurement_model->getAllIssuance($id,'issued');
+            $data['id'] = $id;      
             $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');
             $this->load->view('includes/navbar');

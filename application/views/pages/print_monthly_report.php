@@ -49,7 +49,7 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
                             <th align="center" style="border-right: 1px solid #000; border-bottom: 1px solid #000;" width="50%">Materials</th>
-                            <th align="center" style="border-bottom: 1px solid #000;" width="50%">Labor</th>
+                            <th align="center" style="border-bottom: 1px solid #000;" width="50%">Labor/Others</th>
                         </tr>
                         <tr >
                             <th style="border-right: 1px solid #000; border-bottom: 1px solid #000; vertical-align: top;" width="50%" align="center">
@@ -134,7 +134,7 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="2">
                         <tr>
                             <th align="center" style="border-right: 1px solid #000; border-bottom: 1px solid #000;" width="50%">Materials</th>
-                            <th align="center" style="border-bottom: 1px solid #000;" width="50%">Labor</th>
+                            <th align="center" style="border-bottom: 1px solid #000;" width="50%">Labor/Other Request</th>
                         </tr>
                         <tr >
                             <th style="border-right: 1px solid #000; border-bottom: 1px solid #000; vertical-align: top;" width="50%" align="center">

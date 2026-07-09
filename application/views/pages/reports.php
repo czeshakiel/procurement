@@ -52,6 +52,7 @@
                                                         echo '<li><a class="dropdown-item" href="' . base_url("view_reports/$project[id]") . '">' . $project['projectname'] . '</a></li>';
                                                     }
                                                     ?>                                                
+                                                    <li><a class="dropdown-item" href="<?=base_url('view_reports/17');?>">P/C Maintenance</a></li>
                                             </ul>
                                         </div>
                                     </div>

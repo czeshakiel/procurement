@@ -12,7 +12,13 @@
                     Requisition No.: <u><?=$pono;?></u><br>
                     Date: <u><?=date('F d, Y', strtotime($item['date_requested']));?></u><br>
                     Requested by: <u><?=$item['requested_by'];?></u><br>
-                    Department/Project: <u><?=$project['projectname'];?></u><br>
+                    <?php
+                    if($project){
+                        echo "Department/Project: <u>".$project['projectname']."</u><br>";
+                    }else{
+                        echo "Department/Project: <u>Preventive/Corrective Maintenance</u><br>";
+                    }
+                    ?>
                     </b>    
                 </td>
             </tr>

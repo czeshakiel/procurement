@@ -436,7 +436,7 @@
     <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Monthly Stock Report</h5>
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Monthly Expense Report</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="<?=base_url('print_monthly_report');?>" method="post" target="_blank">                   
@@ -468,6 +468,7 @@
                                 echo "<option value='$project[id]'>$project[projectname]</option>";
                             }
                             ?>
+                            <option value="17">P/C Maintenance</option>
                         </select>
                     </div>                                                        
                 </div>
@@ -560,6 +561,7 @@
                                 echo "<option value='$project[id]'>$project[projectname]</option>";
                             }
                             ?>
+                            <option value="17">P/C Maintenance</option>
                         </select>
                     </div>                                                                             
                 </div>

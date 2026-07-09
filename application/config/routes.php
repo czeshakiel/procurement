@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 #
+$route['pcm/(:any)'] = 'pages/pcm/$1';
 $route['view_reports/(:any)'] = 'pages/view_reports/$1';
 $route['print_monthly_issuance_report'] = 'pages/print_monthly_issuance_report';
 $route['print_monthly_report'] = 'pages/print_monthly_report';

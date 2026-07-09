@@ -21,7 +21,7 @@
                     <!-- Menu: Sub menu ul -->                    
                 </li>  
                 <li class="collapsed">
-                    <a class="m-link" href="<?=base_url('pcm');?>">
+                    <a class="m-link" href="<?=base_url('pcm/17');?>">
                         <i class="icofont-ticket fs-5"></i> <span>P/C Maintenance</span></a>
                     <!-- Menu: Sub menu ul -->                    
                 </li>                
