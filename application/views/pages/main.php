@@ -72,6 +72,7 @@
                                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                         <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
                                                         <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                        <a href="<?=base_url('view_materials/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Materials"><i class="icofont-bag text-info"></i></a>
                                                     </div>
                                                 </div>                                                
                                                 <div class="row g-2 pt-4">
@@ -220,6 +221,7 @@
                                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                         <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
                                                         <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                        <a href="<?=base_url('view_materials/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Materials"><i class="icofont-bag text-info"></i></a>
                                                     </div>
                                                 </div>                                                
                                                 <div class="row g-2 pt-4">
@@ -300,6 +302,7 @@
                                                     <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                         <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
                                                         <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                        <a href="<?=base_url('view_materials/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Materials"><i class="icofont-bag text-info"></i></a>
                                                     </div>
                                                 </div>                                                
                                                 <div class="row g-2 pt-4">
