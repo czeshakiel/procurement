@@ -729,5 +729,33 @@ date_default_timezone_set('Asia/Manila');
             $this->load->view('includes/modal');
             $this->load->view('includes/footer');
         }
+
+        public function view_materials($id){
+            $page = "view_materials";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Materials Budget";
+            $data['project'] = $this->Procurement_model->getSingleProject($id); 
+            $data['materials'] = $this->Procurement_model->getAllMaterials($id);             
+            $data['id'] = $id;      
+            $this->load->view('includes/header');            
+            $this->load->view('includes/sidebar');
+            $this->load->view('includes/navbar');
+            $this->load->view('pages/'.$page,$data);
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
+        public function save_materials(){
+            $project_id = $this->input->post('project_id');
+            $save=$this->Procurement_model->save_materials();
+            if($save){
+                $this->session->set_flashdata('success', 'Materials saved successfully.');
+            } else {
+                $this->session->set_flashdata('error', 'Failed to save materials.');
+            }            
+            redirect(base_url('view_materials/'.$project_id));
+        }
 }
 ?>

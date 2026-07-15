@@ -141,6 +141,28 @@
         document.getElementById('post_issuance_id').value = id[0];
         document.getElementById('post_issuance_project_id').value = id[1];        
     });
+    $('.addMaterials').on('click', function(){
+        var id=$(this).data('id');
+        document.getElementById('materials_project_id').value = id;
+        document.getElementById('materials_id').value = "";
+        document.getElementById('materials_description').value = "";
+        document.getElementById('materials_quantity').value = "";
+        document.getElementById('materials_unit').value = "";    
+        document.getElementById('materials_unitcost').value = "";
+        document.getElementById('materials_code').value = "";
+
+    });
+    $('.editMaterials').on('click', function(){
+        var data=$(this).data('id');
+        var id=data.split('_');
+        document.getElementById('materials_project_id').value = id[0];
+        document.getElementById('materials_id').value = id[1];        
+        document.getElementById('materials_description').value = id[2];
+        document.getElementById('materials_quantity').value = id[3];
+        document.getElementById('materials_unit').value = id[4];
+        document.getElementById('materials_unitcost').value = id[5];
+        document.getElementById('materials_code').value = id[6];
+    });
 </script>
 
 </body>

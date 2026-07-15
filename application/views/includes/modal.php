@@ -598,3 +598,48 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="manageMaterials" tabindex="-1"  aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-md modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title  fw-bold" id="leaveaddLabel"> Manage Materials</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="<?=base_url('save_materials');?>" method="post">
+                    <input type="hidden" name="id" id="materials_id">
+                    <input type="hidden" name="project_id" id="materials_project_id">
+                    <input type="hidden" name="code" id="materials_code">
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="materials_description" name="description" required>
+                    </div> 
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Quantity</label>
+                        <input type="text" class="form-control" id="materials_quantity" name="quantity" required>
+                    </div>                     
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Unit</label>
+                        <input list="unit" name="unit" id="materials_unit" class="form-control" required>
+                        <?php
+                        $units = $this->Procurement_model->getUnit();
+                        foreach ($units as $u) {
+                            echo '<option value="' . $u['unit'] . '">' . $u['unit'] . '</option>';
+                        }
+                        ?>
+                        </datalist>
+                    </div> 
+                    <div class="mb-3">
+                        <label for="sub" class="form-label">Unit Cost</label>
+                        <input type="text" class="form-control" id="materials_unitcost" name="unitcost" required>
+                    </div>                                        
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>

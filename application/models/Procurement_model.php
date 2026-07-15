@@ -771,5 +771,66 @@
             $query = $this->db->query("SELECT pd.*,po.rrno FROM podetails pd INNER JOIN purchaseorder po ON pd.pono = po.pono WHERE pd.project_id = '$id' AND pd.status = 'received' GROUP BY po.rrno,po.pono ORDER BY pd.date_received DESC");
             return $query->result_array();
         }
+        public function getAllMaterials($id){
+            $query = $this->db->query("SELECT * FROM materials WHERE project_id = '$id' ORDER BY `description` ASC");
+            return $query->result_array();
+        }
+        public function getUnit(){
+            $result = $this->db->query("SELECT unit FROM materials GROUP BY unit ORDER BY unit ASC");
+            return $result->result_array();
+        }
+        public function save_materials(){
+            $id = $this->input->post('id');
+            $project_id = $this->input->post('project_id');
+            $unitcost = $this->input->post('unitcost');
+            $description = $this->input->post('description');
+            $unit=$this->input->post('unit');          
+            $quantity = $this->input->post('quantity');   
+            if($id==""){
+                $code=date('YmdHis');
+                $data = array(
+                    'code' => $code,
+                    'description' => $description,
+                    'unit' => $unit,
+                    'unitcost' => $unitcost,
+                    'quantity' => $quantity,
+                    'project_id' => $project_id
+                );
+                $this->db->where('description',$description);
+                $check=$this->db->get('materials');
+                if($check->num_rows() > 0){
+                    return false;
+                }else{
+                    if($this->db->insert('materials', $data)){
+                        $this->db->where('description', $description);
+                        $ck=this->db->get('stocks');
+                        if($ck->num_rows() > 0){                            
+                        }else{
+                            $this->db->insert('stocks', array(
+                                'code' => $code,
+                                'description' => $description,
+                                'unit' => 'Construction Supplies'                                
+                            ));
+                        }
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }                
+            } else {                
+                $code=$this->input->post('code');          
+                $data = array(                    
+                    'description' => $description,
+                    'unit' => $unit,
+                    'unitcost' => $unitcost,
+                    'quantity' => $quantity,                    
+                );
+                $this->db->where('id', $id);
+                $this->db->update('materials', $data);
+                $this->db->where('code', $code);
+                $this->db->update('stocks', array('description' => $description));
+                return true;
+            }
+        }
     }
 ?>
