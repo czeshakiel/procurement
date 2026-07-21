@@ -803,7 +803,7 @@
                 }else{
                     if($this->db->insert('materials', $data)){
                         $this->db->where('description', $description);
-                        $ck=this->db->get('stocks');
+                        $ck=$this->db->get('stocks');
                         if($ck->num_rows() > 0){                            
                         }else{
                             $this->db->insert('stocks', array(

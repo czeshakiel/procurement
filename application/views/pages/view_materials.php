@@ -6,7 +6,7 @@
                         <div class="card-header py-3 no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
                             <h3 class="fw-bold py-3 mb-0"><?=$title;?> | <?=$project['projectname'];?></h3>
                             <div class="col-auto d-flex w-sm-100">
-                                <button type="button" class="btn btn-dark btn-set-task w-sm-100 AddMaterials" data-bs-toggle="modal" data-bs-target="#manageMaterials" data-id="<?=$id;?>"><i class="icofont-plus-circle me-2 fs-6"></i>Add Item</button>
+                                <button type="button" class="btn btn-dark btn-set-task w-sm-100 addMaterials" data-bs-toggle="modal" data-bs-target="#manageMaterials" data-id="<?=$id;?>"><i class="icofont-plus-circle me-2 fs-6"></i>Add Item</button>
                             </div>
                         </div>
                     </div>
