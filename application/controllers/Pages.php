@@ -303,7 +303,7 @@ date_default_timezone_set('Asia/Manila');
             $data['pono'] = $id;  
             $data['project_id'] = $project_id;
             $data['requests'] = $this->Procurement_model->getAllRequestsDetails($id);  
-            $data['items'] = $this->Procurement_model->getItemsByDescription($description);
+            $data['items'] = $this->Procurement_model->getItemsByDescription($description,$project_id);
             $data['suppliers'] = $this->Procurement_model->getAllSuppliers();
             $this->load->view('includes/header');            
             $this->load->view('includes/sidebar');

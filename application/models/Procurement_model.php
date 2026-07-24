@@ -292,9 +292,10 @@
                 redirect('purchase_request/'.$project_id);
             }
         }
-        public function getItemsByDescription($description){
+        public function getItemsByDescription($description,$project_id){
             $this->db->like('description', $description);
-            $query = $this->db->get('stocks');
+            $this->db->where('project_id', $project_id);
+            $query = $this->db->get('materials');
             return $query->result_array();
         }
         public function getAllRequestsDetails($id){

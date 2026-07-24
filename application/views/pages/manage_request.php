@@ -91,7 +91,7 @@
                                                             <?php
                                                             echo "</td>";
                                                             echo "<td><input type='text' name='quantity' class='form-control form-control-sm' required></td>";
-                                                            echo "<td><input type='text' name='unit_price' class='form-control form-control-sm' required id='unit_price$x'></td>";
+                                                            echo "<td><input type='text' name='unit_price' class='form-control form-control-sm' required id='unit_price$x' value='$item[unitcost]'></td>";
                                                             echo "<td><input type='submit' class='btn btn-primary btn-sm' value='Add Item'></td>";
                                                             echo "</tr>";
                                                             echo "</form>";
