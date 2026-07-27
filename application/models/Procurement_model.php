@@ -833,5 +833,19 @@
                 return true;
             }
         }
+        public function getRequested($project_id,$code){
+            $this->db->where('project_id', $project_id);
+            $this->db->where('code', $code);
+            $this->db->where('status', 'received');
+            $query = $this->db->get('purchaseorder');
+            return $query->result_array();
+        }
+        public function getReceived($project_id,$code){
+            $this->db->where('project_id', $project_id);
+            $this->db->where('code', $code);
+            $this->db->where('status', 'issued');
+            $query = $this->db->get('issuance');
+            return $query->result_array();
+        }
     }
 ?>

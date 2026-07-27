@@ -40,6 +40,7 @@
                                             <th>Quantity</th>
                                             <th>Unit</th>
                                             <th>Unit Cost</th>
+                                            <th>Total</th>
                                             <th>Actions</th>  
                                         </tr>
                                     </thead>
@@ -49,7 +50,8 @@
                                             <td><?=$request['description'];?></td>
                                             <td><?=$request['quantity'];?></td>
                                             <td><?=$request['unit'];?></td>
-                                            <td><?=$request['unitcost'];?></td>
+                                            <td align="right"><?=number_format($request['unitcost'], 2);?></td>
+                                            <td align="right"><?=number_format($request['quantity'] * $request['unitcost'], 2);?></td>
                                             <td>                                                
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#manageMaterials" data-id="<?=$id;?>_<?=$request['id'];?>_<?=$request['description'];?>_<?=$request['quantity'];?>_<?=$request['unit'];?>_<?=$request['unitcost'];?>_<?=$request['code'];?>" class="btn btn-sm btn-primary editMaterials"><i class="icofont-edit"></i> Edit</a>                                            </td>  
                                         </tr>

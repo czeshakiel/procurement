@@ -757,5 +757,27 @@ date_default_timezone_set('Asia/Manila');
             }            
             redirect(base_url('view_materials/'.$project_id));
         }
+
+        public function print_project_report(){
+            $page = "print_project_report";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            if(!$this->session->user_login){redirect(base_url());}
+            $startdate=$this->input->post('startdate');
+            $enddate=$this->input->post('enddate');
+            $type=$this->input->post('type');
+            $project_id=$this->input->post('project_id');
+            $data['project_id'] = $project_id;
+            $data['startdate'] = $startdate;
+            $data['enddate'] = $enddate;
+            $data['type'] = $type;            
+                $project = $this->Procurement_model->getSingleProject($project_id);                
+                $pname=$project['projectname'];                                
+                $data['projectname'] = $pname;
+                $data['budget'] = $project['amount_approved'];
+                $data['width'] = "800";            
+            $this->load->view('pages/'.$page,$data);
+        }
 }
 ?>

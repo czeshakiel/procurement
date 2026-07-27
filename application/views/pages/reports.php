@@ -17,6 +17,15 @@
                                 <div class="flex-grow-1">
                                     <div class="py-2 d-flex align-items-center border-bottom">
                                         <div class="d-flex ms-3 align-items-center flex-fill">
+                                            <span class="avatar lg light-success-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-file-text fs-5"></i></span>
+                                            <div class="d-flex flex-column ps-3">
+                                                <h6 class="fw-bold mb-0 small-14">Project Monitoring Report</h6>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="btn light-success-bg text-end" data-bs-toggle="modal" data-bs-target="#generateProjectReport">Generate</a>
+                                    </div>
+                                    <div class="py-2 d-flex align-items-center border-bottom">
+                                        <div class="d-flex ms-3 align-items-center flex-fill">
                                             <span class="avatar lg light-primary-bg rounded-circle text-center d-flex align-items-center justify-content-center"><i class="icofont-file-text fs-5"></i></span>
                                             <div class="d-flex flex-column ps-3">
                                                 <h6 class="fw-bold mb-0 small-14">Monthly Expense Report</h6>
