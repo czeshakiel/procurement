@@ -788,23 +788,16 @@
             $quantity = $this->input->post('quantity');   
             if($id==""){
                 $code=date('YmdHis');
-                $data = array(
-                    'code' => $code,
-                    'description' => $description,
-                    'unit' => $unit,
-                    'unitcost' => $unitcost,
-                    'quantity' => $quantity,
-                    'project_id' => $project_id
-                );
                 $this->db->where('description',$description);
                 $check=$this->db->get('materials');
                 if($check->num_rows() > 0){
                     return false;
                 }else{
-                    if($this->db->insert('materials', $data)){
                         $this->db->where('description', $description);
                         $ck=$this->db->get('stocks');
-                        if($ck->num_rows() > 0){                            
+                        if($ck->num_rows() > 0){
+                            $cs=$ck->row_array();
+                            $code=$cs['code'];                            
                         }else{
                             $this->db->insert('stocks', array(
                                 'code' => $code,
@@ -812,10 +805,16 @@
                                 'unit' => 'Construction Supplies'                                
                             ));
                         }
+                        $data = array(
+                            'code' => $code,
+                            'description' => $description,
+                            'unit' => $unit,
+                            'unitcost' => $unitcost,
+                            'quantity' => $quantity,
+                            'project_id' => $project_id
+                        );
+                        $this->db->insert('materials', $data);
                         return true;
-                    } else {
-                        return false;
-                    }
                 }                
             } else {                
                 $code=$this->input->post('code');          

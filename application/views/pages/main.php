@@ -54,8 +54,12 @@
                                                 foreach($qry as $details){
                                                     $accu_amount += $details['unitcost']*$details['quantity'];
                                                 }
+                                                $qry=$this->Procurement_model->getAllOtherRequests($request['id'],'issued');
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['amount'];
+                                                }
                                             }
-                                        }
+                                        }                                        
                                         $percent = ($accu_amount / $item['amount_approved']) * 100;
                                     ?>
                                     <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
@@ -133,6 +137,10 @@
                                                     $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
                                                     foreach($qry as $details){
                                                         $accu_amount += $details['unitcost']*$details['quantity'];
+                                                    }
+                                                    $qry=$this->Procurement_model->getAllOtherRequests($request['id'],'issued');
+                                                    foreach($qry as $details){
+                                                        $accu_amount += $details['amount'];
                                                     }
                                                 }
                                             }
@@ -215,6 +223,10 @@
                                                 foreach($qry as $details){
                                                     $accu_amount += $details['unitcost']*$details['quantity'];
                                                 }
+                                                $qry=$this->Procurement_model->getAllOtherRequests($request['id'],'issued');
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['amount'];
+                                                }
                                             }
                                         }
                                         $percent = ($accu_amount / $item['amount_approved']) * 100;
@@ -295,6 +307,10 @@
                                                 $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
                                                 foreach($qry as $details){
                                                     $accu_amount += $details['unitcost']*$details['quantity'];
+                                                }
+                                                $qry=$this->Procurement_model->getAllOtherRequests($request['id'],'issued');
+                                                foreach($qry as $details){
+                                                    $accu_amount += $details['amount'];
                                                 }
                                             }
                                         }

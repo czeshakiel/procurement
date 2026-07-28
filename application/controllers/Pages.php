@@ -779,5 +779,21 @@ date_default_timezone_set('Asia/Manila');
                 $data['width'] = "800";            
             $this->load->view('pages/'.$page,$data);
         }
+
+        public function bidding(){
+            $page = "bidding";
+            if(!file_exists(APPPATH.'views/pages/'.$page.".php")){
+                show_404();
+            }
+            // if(!$this->session->user_login){redirect(base_url());}
+            $data['title'] = "Projects";
+            $data['all_projects'] = $this->Procurement_model->getAllProjects();           
+            $this->load->view('includes/header');
+            $this->load->view('includes/sidebar1');
+            $this->load->view('includes/navbar1');
+            $this->load->view('pages/'.$page,$data);            
+            $this->load->view('includes/modal');
+            $this->load->view('includes/footer');
+        }
 }
 ?>
