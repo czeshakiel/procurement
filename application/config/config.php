@@ -24,7 +24,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $host= $_SERVER['HTTP_HOST'];
-$config['base_url'] = 'http://'.$host.'/procurement';
+$host = $_SERVER['HTTP_HOST'];
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off'){    
+		$uri = 'https://'.$host;
+	} else {
+		$uri = 'http://'.$host;
+	}
+$config['base_url'] = $uri.'/procurement';
 
 /*
 |--------------------------------------------------------------------------

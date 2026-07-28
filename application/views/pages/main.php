@@ -126,6 +126,17 @@
                                             $date2=date_create(date('Y-m-d'));
                                             $diff=date_diff($date1,$date2);
                                             $days = $diff->format("%a");
+                                            $accu_amount=0;
+                                            $query = $this->Procurement_model->getAllReceivedRequests($item['id']);
+                                            foreach($query as $request){
+                                                if($request['status'] == 'received'){
+                                                    $qry=$this->Procurement_model->getAllRequestsDetails($request['pono']);
+                                                    foreach($qry as $details){
+                                                        $accu_amount += $details['unitcost']*$details['quantity'];
+                                                    }
+                                                }
+                                            }
+                                            $percent = ($accu_amount / $item['amount_approved']) * 100;
                                         ?>
                                         <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
                                             <div class="card">
@@ -141,6 +152,7 @@
                                                         <div class="btn-group" role="group" aria-label="Basic outlined example">
                                                             <button type="button" class="btn btn-outline-secondary editproject" data-bs-toggle="modal" data-bs-target="#createproject" data-id="<?=$item['id'].'_'.$item['projectname'].'_'.$item['contractor'].'_'.$item['date_started'].'_'.$item['date_ended'].'_'.$item['amount_approved'];?>"><i class="icofont-edit text-success"></i></button>
                                                             <a href="<?=base_url('view_project/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Details"><i class="icofont-external-link text-primary"></i></a>
+                                                            <a href="<?=base_url('view_materials/'.$item['id']);?>" class="btn btn-outline-secondary" title="View Materials"><i class="icofont-bag text-info"></i></a>
                                                         </div>
                                                     </div>                                                
                                                     <div class="row g-2 pt-4">
@@ -172,7 +184,7 @@
                                                     <div class="dividers-block"></div>
                                                     <div class="d-flex align-items-center justify-content-between mb-2">
                                                         <h4 class="small fw-bold mb-0">Amount Accumulated</h4>
-                                                        <span class="small light-danger-bg  p-1 rounded"><i class="icofont-ui-clock"></i> 35 Days Left</span>
+                                                        <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: <?=$percent;?>%" aria-valuenow="<?=$accu_amount;?>" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>
                                                     </div>
                                                     <div class="progress" style="height: 8px;">                                                   
                                                         <div class="progress-bar bg-secondary ms-1" role="progressbar" style="width: 42%" aria-valuenow="5000000" aria-valuemin="0" aria-valuemax="<?=$item['amount_approved'];?>"></div>

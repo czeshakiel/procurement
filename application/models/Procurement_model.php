@@ -205,7 +205,6 @@
             return $query->result_array();
         }
         public function getStartedProjects(){
-
             $query = $this->db->query("SELECT * FROM project WHERE status='pending' AND date_started BETWEEN '".date('Y-m-01')."' AND '".date('Y-m-t')."' ORDER BY date_started ASC");
             return $query->result_array();
         }
