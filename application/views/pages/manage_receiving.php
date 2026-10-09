@@ -74,7 +74,9 @@
                                                 echo "<td>".$request['description']."</td>";
                                                 echo "<td>".$request['quantity']."</td>";
                                                 echo "<td>".$request['suppliername']."</td>";
-                                                echo "<td align='right'>".number_format($request['unitcost'], 2)."</td>";
+                                                ?>
+                                                <input type="text" name="unitcost[]" class="form-control form-control-sm" value="<?=$request['unitcost']?>" style="text-align: center;">
+                                                <?php
                                                 echo "<td align='right'>".number_format($amount, 2)."</td>";
                                                 echo "<td align='center'>";
                                                 ?>
